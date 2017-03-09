@@ -46,7 +46,7 @@ public class Main extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("GLOBAL SURVEILLANCE SYSTEM");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto4_haroldmendoza_josefernandez/rsz_seal_of_the_united_states_national_security_agencysvg_.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/rsz_NSA.png"))); // NOI18N
 
         jButton1.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
         jButton1.setText("GLOBAL MAP");
