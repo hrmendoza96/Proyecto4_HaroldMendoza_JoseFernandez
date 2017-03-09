@@ -1,55 +1,59 @@
 package proyecto4_haroldmendoza_josefernandez;
 
-
 public class ADTList {
-    
+
     int tamano = 0;
-    
-public ADTList() {
-     tamano=0;
-}
+    int probar = 0;
 
-public int size(){
-     return tamano;
-}
+    public ADTList() {
+        tamano = 0;
+    }//Fin del constructor
 
-public boolean insert(Object  e, int p){
-  return false;
+    public int size() {
+        return tamano;
+    }//Fin del metodo size
 
-}
-public boolean remove(int p){
-  
-  return false;
+    public boolean Insert(Object e, int p) {
+        return false;
+    }//Fin del metodo insert
 
-}
-public Object First() {
-  Object* e;
-  return e;
+    public boolean Remove(int p) {
+        return false;
+    }//Fin del metodo remove
 
-}
-Object* ADTList::last() const{
-  Object* e;
-  return e;
-}
-void ADTList::clear(){
+    public Object First() {
+        Object e = null;
+        return e;
+    }//Fin del metodo fist
 
-}
-int ADTList::indexOf(Object* e) const{
-  return 0;
-}
-Object* ADTList::get(int p) const{
-  Object* e;
-  return e;
-}
-int ADTList::capacity() const{
-  return 0;
+    Object Last() {
+        Object e = null;
+        return e;
+    }//Fin del metodo last
 
-}
-bool ADTList::isEmpty() const{
-  return false;
-}
-bool ADTList::isFull() const{
-  return false;
-}
+    public void Clear() {
 
-}
+    }//Fin del metodo clear
+
+    public int IndexxOf(Object e) {
+        return 0;
+    }//Fin del metodo index of
+
+    Object Get(int p) {
+        Object e = null;
+        return e;
+    }//Fin del metodo get
+
+    public int Capacity() {
+        return 0;
+    }//Fin del metodo capacity
+
+    public boolean IsEmpty() {
+        return false;
+    }//Fin del metodo isEmpty
+
+    public boolean IsFull() {
+        return false;
+    }//Fin del metodo isFull
+
+}//Fin de la clase
