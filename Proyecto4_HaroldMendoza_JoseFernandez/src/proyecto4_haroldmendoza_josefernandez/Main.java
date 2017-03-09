@@ -18,6 +18,7 @@ public class Main extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Proyecto 4: GLOBAL SURVEILLANCE SYSTEM");
+        System.out.println("Hola");
     }
 
     /**
