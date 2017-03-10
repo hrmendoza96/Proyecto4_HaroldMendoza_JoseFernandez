@@ -8,6 +8,7 @@ public class VSArrayList extends ADTList {
     int delta;
     ArrayList<Persona> array = new ArrayList();
 
+    @Override
     public boolean Insert(Persona e, int p) {
         if (p < 0 || p > tamano) {
             return false;
@@ -18,7 +19,7 @@ public class VSArrayList extends ADTList {
         for (int i = tamano; i > p; i--) {
             array.set(i, array.get(i - 1));
         }//Fin del for
-        array.set(p, e);
+        array.add(p, e);
         tamano++;
         return true;
     }//Fin del metodo
@@ -32,16 +33,19 @@ public class VSArrayList extends ADTList {
         array = temp;
         current_capacity += delta;
     }//Fin del metodo
+    
+    public void FixCapacity() {
+        this.current_capacity++;
+    }//Fin del metodo fixCap
 
     public VSArrayList(int current_capacity, int delta) {
         this.delta = delta;
         this.current_capacity = current_capacity;
         array = new ArrayList(current_capacity);
-        /*
-        if (!array) {
+        if (array == null) {
             System.out.println("Out of memory");
             System.exit(0);
-        }*/
+        }//Fin del if 
     }//Fin del constructor
 
     @Override

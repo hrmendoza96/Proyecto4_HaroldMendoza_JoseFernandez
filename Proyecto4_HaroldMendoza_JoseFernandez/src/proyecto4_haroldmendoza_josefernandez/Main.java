@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Main extends javax.swing.JFrame {
 
     public void LlenarLista() {
+        personas = new VSArrayList(0, 1);
         File archivoCiudades = null;
         Scanner scannerArchivo = null;
         archivoCiudades = new File("./Personas.txt");
@@ -32,8 +33,7 @@ public class Main extends javax.swing.JFrame {
                         salario = Double.parseDouble(caracteristicas[4]);
                         Persona persona = new Persona(nombre, edad, ciudad, estadoCivil, salario);
                         personas.Insert(persona, contador);
-                        System.out.println("ok");
-
+                        personas.FixCapacity();
                         contador++;
                     }//Fin del if
                 } catch (Exception e) {
@@ -198,7 +198,7 @@ public class Main extends javax.swing.JFrame {
         });
     }
 
-    VSArrayList personas = new VSArrayList(0, 1);
+    VSArrayList personas;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
