@@ -5,6 +5,8 @@
  */
 package proyecto4_haroldmendoza_josefernandez;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Harold Mendoza
@@ -15,6 +17,8 @@ public class Persona {
     protected String ciudad;
     protected String EstadoCivil;
     protected double salario;
+    ArrayList<Relationship> relatedPeople = new ArrayList();
+    
 
     public Persona() {
     }
@@ -66,6 +70,15 @@ public class Persona {
     public void setSalario(double salario) {
         this.salario = salario;
     }
+
+    public ArrayList<Relationship> getRelatedPeople() {
+        return relatedPeople;
+    }
+
+    public void setRelatedPeople(Relationship related) {
+        this.relatedPeople.add(related);
+    }
+    
 
     @Override
     public String toString() {
