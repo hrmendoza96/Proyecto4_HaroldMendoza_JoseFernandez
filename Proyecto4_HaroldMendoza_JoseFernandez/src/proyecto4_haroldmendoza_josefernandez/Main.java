@@ -2,6 +2,11 @@ package proyecto4_haroldmendoza_josefernandez;
 
 import java.io.File;
 import java.util.Scanner;
+import org.graphstream.graph.Edge;
+import org.graphstream.graph.Graph;
+import org.graphstream.graph.Node;
+import org.graphstream.graph.implementations.SingleGraph;
+import org.graphstream.ui.view.Viewer;
 
 public class Main extends javax.swing.JFrame {
 
@@ -69,6 +74,7 @@ public class Main extends javax.swing.JFrame {
                 System.out.println(temp.toString());
             }
         }
+        CrearMapaGlobal();
 
     }//Fin del metodo llenar lista
 
@@ -194,7 +200,8 @@ public class Main extends javax.swing.JFrame {
 
     private void b_grafoPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_grafoPrincipalActionPerformed
         // TODO add your handling code here:
-
+        Viewer viewer = MapaGlobal.display(); //display el grafo
+        viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
     }//GEN-LAST:event_b_grafoPrincipalActionPerformed
 
     public static void main(String args[]) {
@@ -240,6 +247,53 @@ public class Main extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     VSArrayList personas;
+    
+    Graph MapaGlobal = new SingleGraph("Global Map Routes");
+    
+    void CrearMapaGlobal(){
+        for (int i = 0; i < personas.size(); i++) {
+            Node a=null;
+            
+      
+            try {
+                if(MapaGlobal.getNode(personas.Get(i).getNombre())==null){
+                    MapaGlobal.addNode(personas.Get(i).getNombre()); //se agrega la persona al grafo
+                    a = MapaGlobal.getNode(personas.Get(i).getNombre());
+                    a.addAttribute("ui.label", personas.Get(i).getNombre());
+                }else{
+                    a = MapaGlobal.getNode(personas.Get(i).getNombre());
+                }
+                for (Relationship temp: personas.Get(i).getRelatedPeople()) {
+                    Node b;
+                    if(MapaGlobal.getNode(temp.getName())==null){
+                        MapaGlobal.addNode(temp.getName()); //se agrega la ciudad de amigo al grafo
+                        b = MapaGlobal.getNode(temp.getName());
+                        b.addAttribute("ui.label", temp.getName());
+                    }else{
+                        b = MapaGlobal.getNode(temp.getName());
+                    }
+                    if(MapaGlobal.getEdge(a.getId()+b.getId())==null){ // se agregan los edges 
+                        MapaGlobal.addEdge(a.getId()+b.getId(), a, b).addAttribute("Relacion", temp.getNivelRelacion());
+                        MapaGlobal.getEdge(a.getId()+b.getId()).addAttribute("ui.label","Nivel de Relacion: "+ Integer.toString(temp.getNivelRelacion()));
+                    }//fin if edges      
+                }//fin for
+                /*
+                if(MapaGlobal.getEdge(node_Salida.getId()+node_Entrada.getId())==null){ // se agregan los edges 
+                    MapaGlobal.addEdge(node_Salida.getId()+node_Entrada.getId(), node_Salida, node_Entrada, true).addAttribute("Distancia", temp.getDistancia());
+                    MapaGlobal.getEdge(node_Salida.getId()+node_Entrada.getId()).addAttribute("Costo", temp.getCosto());
+                    MapaGlobal.getEdge(node_Salida.getId()+node_Entrada.getId()).addAttribute("ui.label","DISTANCE: "+ Double.toString(temp.getDistancia())+
+                            " PRICE: "+ Double.toString(temp.getCosto())+" AIRLINE: "+ temp.getAerolinea());
+                } 
+                */
+            } catch (Exception e) {
+            }
+            
+        }
+        
+        
+        
+        
+    }
     
 
 
