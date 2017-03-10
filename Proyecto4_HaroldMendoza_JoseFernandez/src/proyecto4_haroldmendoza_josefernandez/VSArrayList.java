@@ -6,10 +6,10 @@ public class VSArrayList extends ADTList {
 
     int current_capacity;
     int delta;
-    ArrayList<Object> array = new ArrayList();
+    ArrayList<Persona> array = new ArrayList();
 
     @Override
-    public boolean Insert(Object e, int p) {
+    public boolean Insert(Persona e, int p) {
         if (p < 0 || p > tamano) {
             return false;
         }//Fin del if
@@ -19,13 +19,13 @@ public class VSArrayList extends ADTList {
         for (int i = tamano; i > p; i--) {
             array.set(i, array.get(i - 1));
         }//Fin del for
-        array.set(p, e);
+        array.add(p, e);
         tamano++;
         return true;
     }//Fin del metodo
 
     public void resize() {
-        ArrayList<Object> temp = new ArrayList(current_capacity + delta);
+        ArrayList<Persona> temp = new ArrayList(current_capacity + delta);
         //validar memoria
         for (int i = 0; i < current_capacity; i++) {
             temp.set(i, array.get(i));
@@ -33,21 +33,23 @@ public class VSArrayList extends ADTList {
         array = temp;
         current_capacity += delta;
     }//Fin del metodo
+    
+    public void FixCapacity() {
+        this.current_capacity++;
+    }//Fin del metodo fixCap
 
     public VSArrayList(int current_capacity, int delta) {
         this.delta = delta;
         this.current_capacity = current_capacity;
         array = new ArrayList(current_capacity);
-        /*
-        if (!array) {
+        if (array == null) {
             System.out.println("Out of memory");
             System.exit(0);
-        }*/
+        }//Fin del if 
     }//Fin del constructor
 
     @Override
     public boolean Remove(int p) {
-        Object elemento = array.get(p);
         array.set(p, null);
         for (int i = p; i < tamano - 1; i++) { //corre los elementos del arreglo
             array.set(i, array.get(i + 1));
@@ -58,12 +60,12 @@ public class VSArrayList extends ADTList {
     }//Fin del metodo removee
 
     @Override
-    public Object First() {
+    public Persona First() {
         return array.get(0);
     }//Fin del metodo first
 
     @Override
-    public Object Last() {
+    public Persona Last() {
         return array.get(tamano - 1);
     }//Fin del metodo last
 
@@ -77,7 +79,8 @@ public class VSArrayList extends ADTList {
         }//Fin del for
     }//Fin del clear
 
-    public int IndexxOf(Object e) {
+    @Override
+    public int IndexxOf(Persona e) {
         int aux = 0;
         for (int i = 0; i < tamano; i++) {
             if (array.get(i).equals(e)) {
@@ -88,10 +91,11 @@ public class VSArrayList extends ADTList {
     }//Fin del metodo
 
     @Override
-    public Object Get(int p) {
+    public Persona Get(int p) {
         return array.get(p);
     }//Fin del metodo get
 
+    @Override
     public int Capacity() {
         return current_capacity;
     }//Fin del metodo capacity
