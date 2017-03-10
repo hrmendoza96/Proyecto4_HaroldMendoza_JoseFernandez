@@ -74,7 +74,8 @@ public class Main extends javax.swing.JFrame {
                 System.out.println(temp.toString());
             }
         }
-        CrearMapaGlobal();
+        CrearMapaGlobal(); //se crea el grafo
+        llenarComboBox();//se llena el cb_Lista
 
     }//Fin del metodo llenar lista
 
@@ -93,7 +94,7 @@ public class Main extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         b_grafoPrincipal = new javax.swing.JButton();
         b_informacion = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cb_Lista = new javax.swing.JComboBox<>();
         b_relatives = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -116,11 +117,18 @@ public class Main extends javax.swing.JFrame {
 
         b_informacion.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
         b_informacion.setText("Information");
+        b_informacion.setEnabled(false);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        cb_Lista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        cb_Lista.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_ListaItemStateChanged(evt);
+            }
+        });
 
         b_relatives.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
         b_relatives.setText("Relatives");
+        b_relatives.setEnabled(false);
 
         jButton4.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
         jButton4.setText("EXIT");
@@ -157,7 +165,7 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(127, 127, 127))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cb_Lista, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(184, 184, 184))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -170,7 +178,7 @@ public class Main extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(b_grafoPrincipal)
                 .addGap(52, 52, 52)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cb_Lista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addComponent(b_informacion)
                 .addGap(75, 75, 75)
@@ -203,6 +211,24 @@ public class Main extends javax.swing.JFrame {
         Viewer viewer = MapaGlobal.display(); //display el grafo
         viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
     }//GEN-LAST:event_b_grafoPrincipalActionPerformed
+
+    private void cb_ListaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_ListaItemStateChanged
+        // TODO add your handling code here:
+        if (evt.getStateChange() == 2) {
+            String s =  (String) cb_Lista.getSelectedItem();
+            
+            if(cb_Lista.getSelectedIndex()!=0){//verificar que no sea el espacio vacio
+                SelectedPerson = MapaGlobal.getNode(s);
+                b_informacion.setEnabled(true);
+                b_relatives.setEnabled(true);
+            }else{ //si se escogee el espacio en blanco, se bloquean los botones
+                SelectedPerson=null;
+                b_informacion.setEnabled(false);
+                b_relatives.setEnabled(false);
+            }
+            
+        }
+    }//GEN-LAST:event_cb_ListaItemStateChanged
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -239,8 +265,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton b_grafoPrincipal;
     private javax.swing.JButton b_informacion;
     private javax.swing.JButton b_relatives;
+    private javax.swing.JComboBox<String> cb_Lista;
     private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -249,6 +275,14 @@ public class Main extends javax.swing.JFrame {
     VSArrayList personas;
     
     Graph MapaGlobal = new SingleGraph("Global Map Routes");
+    
+    Node SelectedPerson;
+    
+    void llenarComboBox(){
+        for (int i = 0; i < personas.size(); i++) {
+            cb_Lista.addItem(personas.Get(i).getNombre());
+        }
+    }
     
     void CrearMapaGlobal(){
         for (int i = 0; i < personas.size(); i++) {
@@ -277,14 +311,6 @@ public class Main extends javax.swing.JFrame {
                         MapaGlobal.getEdge(a.getId()+b.getId()).addAttribute("ui.label","Nivel de Relacion: "+ Integer.toString(temp.getNivelRelacion()));
                     }//fin if edges      
                 }//fin for
-                /*
-                if(MapaGlobal.getEdge(node_Salida.getId()+node_Entrada.getId())==null){ // se agregan los edges 
-                    MapaGlobal.addEdge(node_Salida.getId()+node_Entrada.getId(), node_Salida, node_Entrada, true).addAttribute("Distancia", temp.getDistancia());
-                    MapaGlobal.getEdge(node_Salida.getId()+node_Entrada.getId()).addAttribute("Costo", temp.getCosto());
-                    MapaGlobal.getEdge(node_Salida.getId()+node_Entrada.getId()).addAttribute("ui.label","DISTANCE: "+ Double.toString(temp.getDistancia())+
-                            " PRICE: "+ Double.toString(temp.getCosto())+" AIRLINE: "+ temp.getAerolinea());
-                } 
-                */
             } catch (Exception e) {
             }
             
