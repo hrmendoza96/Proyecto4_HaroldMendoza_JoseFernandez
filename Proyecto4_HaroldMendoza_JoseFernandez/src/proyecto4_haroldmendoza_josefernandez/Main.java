@@ -227,7 +227,7 @@ public class Main extends javax.swing.JFrame {
         });
     }
 
-    VSArrayList personas;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b_grafoPrincipal;
     private javax.swing.JButton b_informacion;
@@ -238,4 +238,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    VSArrayList personas;
+    
+
+
 }//Fin de la clase
