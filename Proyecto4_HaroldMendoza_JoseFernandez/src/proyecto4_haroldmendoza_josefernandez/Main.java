@@ -7,17 +7,17 @@ public class Main extends javax.swing.JFrame {
 
     public void LlenarLista() {
         personas = new VSArrayList(0, 1);
-        File archivoCiudades = null;
+        File archivo = null;
         Scanner scannerArchivo = null;
-        archivoCiudades = new File("./Personas.txt");
+        archivo = new File("./Personas.txt");
         String linea = "", nombre = "", ciudad = "", estadoCivil = "";
         int edad = 0;
         double salario = 0;
         String[] caracteristicas = null;
         int contador = 0;
         try {
-            //Aseguramos que el scanner comienze a leer el archivo que contiene las rutas.
-            scannerArchivo = new Scanner(archivoCiudades);
+            //Aseguramos que el scanner comienze a leer el archivo que contiene las personas.
+            scannerArchivo = new Scanner(archivo);
             //Se lleva a cabo el for hasta que ya no haya mas texto en el archivo.
             while (scannerArchivo.hasNextLine()) {
                 try {
@@ -32,6 +32,8 @@ public class Main extends javax.swing.JFrame {
                         estadoCivil = caracteristicas[3];
                         salario = Double.parseDouble(caracteristicas[4]);
                         Persona persona = new Persona(nombre, edad, ciudad, estadoCivil, salario);
+                        
+                       
                         personas.Insert(persona, contador);
                         personas.FixCapacity();
                         contador++;
@@ -66,10 +68,10 @@ public class Main extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        b_grafoPrincipal = new javax.swing.JButton();
+        b_informacion = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jButton3 = new javax.swing.JButton();
+        b_relatives = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
@@ -81,16 +83,21 @@ public class Main extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("GLOBAL SURVEILLANCE SYSTEM");
 
-        jButton1.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
-        jButton1.setText("GLOBAL MAP");
+        b_grafoPrincipal.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
+        b_grafoPrincipal.setText("GLOBAL MAP");
+        b_grafoPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_grafoPrincipalActionPerformed(evt);
+            }
+        });
 
-        jButton2.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
-        jButton2.setText("Information");
+        b_informacion.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
+        b_informacion.setText("Information");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
 
-        jButton3.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
-        jButton3.setText("Relatives");
+        b_relatives.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
+        b_relatives.setText("Relatives");
 
         jButton4.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
         jButton4.setText("EXIT");
@@ -111,14 +118,14 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(262, 262, 262)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(b_informacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(b_relatives, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(265, 265, 265)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(b_grafoPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(137, Short.MAX_VALUE)
@@ -138,13 +145,13 @@ public class Main extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(jLabel2)
                 .addGap(39, 39, 39)
-                .addComponent(jButton1)
+                .addComponent(b_grafoPrincipal)
                 .addGap(52, 52, 52)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
-                .addComponent(jButton2)
+                .addComponent(b_informacion)
                 .addGap(75, 75, 75)
-                .addComponent(jButton3)
+                .addComponent(b_relatives)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addGap(44, 44, 44))
@@ -167,6 +174,11 @@ public class Main extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void b_grafoPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_grafoPrincipalActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_b_grafoPrincipalActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -200,9 +212,9 @@ public class Main extends javax.swing.JFrame {
 
     VSArrayList personas;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton b_grafoPrincipal;
+    private javax.swing.JButton b_informacion;
+    private javax.swing.JButton b_relatives;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
