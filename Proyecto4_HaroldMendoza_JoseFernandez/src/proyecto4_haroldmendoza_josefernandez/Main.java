@@ -35,23 +35,20 @@ public class Main extends javax.swing.JFrame {
                         Relationship relacion = null;
 
                         Persona persona = new Persona(nombre, edad, ciudad, estadoCivil, salario);
-                        
-                       
+
                         personas.Insert(persona, contador);
                         personas.FixCapacity();
-                        
-                        
-                        for (int i = 5; i < caracteristicas.length; i += 2) {
+
+                        for (int i = 5; i < caracteristicas.length - 1; i += 2) {
                             int nivel = 0;
                             String name = "";
-                            if (i + 1 < personas.size()) {
-                                nivel = Integer.parseInt(caracteristicas[i] + 1);
-                                name = caracteristicas[i];
-                                relacion = new Relationship(name, nivel);
-                                personas.Get(personas.size() - 1).setRelatedPeople(relacion);
-                            }
+                            name = caracteristicas[5];
+                            nivel = Integer.parseInt(caracteristicas[6]);
+                            relacion = new Relationship(name, nivel);
+                            personas.Get(personas.size() - 1).setRelatedPeople(relacion);
+                            
                         }//Fin del for
-                        
+
                         contador++;
                     }//Fin del if
                 } catch (Exception e) {
@@ -66,10 +63,11 @@ public class Main extends javax.swing.JFrame {
         } catch (Exception e) {
 
         }//Fin del trycatch
+
         for (int i = 0; i < personas.size(); i++) {
             System.out.println(personas.Get(i).getNombre());
-          
         }
+
     }//Fin del metodo llenar lista
 
     public Main() {
@@ -194,7 +192,7 @@ public class Main extends javax.swing.JFrame {
 
     private void b_grafoPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_grafoPrincipalActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_b_grafoPrincipalActionPerformed
 
     public static void main(String args[]) {
