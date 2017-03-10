@@ -40,7 +40,7 @@ public class Main extends javax.swing.JFrame {
                         personas.Insert(persona, contador);
                         personas.FixCapacity();
                         
-                        /*
+                        
                         for (int i = 5; i < caracteristicas.length; i += 2) {
                             int nivel = 0;
                             String name = "";
@@ -51,7 +51,7 @@ public class Main extends javax.swing.JFrame {
                                 personas.Get(personas.size() - 1).setRelatedPeople(relacion);
                             }
                         }//Fin del for
-                        */
+                        
                         contador++;
                     }//Fin del if
                 } catch (Exception e) {
