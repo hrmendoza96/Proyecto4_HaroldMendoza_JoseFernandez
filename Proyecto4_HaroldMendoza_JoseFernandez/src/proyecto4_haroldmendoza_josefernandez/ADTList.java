@@ -13,7 +13,7 @@ public class ADTList {
         return tamano;
     }//Fin del metodo size
 
-    public boolean Insert(Object e, int p) {
+    public boolean Insert(Persona e, int p) {
         return false;
     }//Fin del metodo insert
 
@@ -21,13 +21,13 @@ public class ADTList {
         return false;
     }//Fin del metodo remove
 
-    public Object First() {
-        Object e = null;
+    public Persona First() {
+        Persona e = null;
         return e;
     }//Fin del metodo fist
 
-    Object Last() {
-        Object e = null;
+    Persona Last() {
+        Persona e = null;
         return e;
     }//Fin del metodo last
 
@@ -35,12 +35,12 @@ public class ADTList {
 
     }//Fin del metodo clear
 
-    public int IndexxOf(Object e) {
+    public int IndexxOf(Persona e) {
         return 0;
     }//Fin del metodo index of
 
-    Object Get(int p) {
-        Object e = null;
+    Persona Get(int p) {
+        Persona e = null;
         return e;
     }//Fin del metodo get
 
