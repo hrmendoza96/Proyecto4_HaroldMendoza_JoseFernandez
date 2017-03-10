@@ -10,7 +10,7 @@ Victor,40,Moscu,Viudo,54000,Ricardo,10,Kevin,5,Pablo,20,Ramon,10
 Felipe,47,Montevideo,Soltero,63000,Nelson,5,Elena,20,Michael,20
 Ramon,49,Quito,Viudo,65000,Lisandro,10,Bill,5,Jorge,10,Gracia,20
 Pablo,50,Bogota,Divorciado,96000,Andrea,10,Nelson,20,Andre,5
-Kevin,30,Miami,Casado,42000,Eduardo,20,Andream5,Nelson,10,Bianca,5
+Kevin,30,Miami,Casado,42000,Eduardo,20,Andrea,5,Nelson,10,Bianca,5
 Michael,35,Berlin,Soltero,10000,Martha,10,Martin,5,Luis,20
 Barbara,50,Detroit,Viuda,35000,Jose,20,Harold,10,Maria,5
 Bianca,30,Berlin,Divorciada,40000,Barbara,5,Michelle,10,Juan,20,Ramses,5

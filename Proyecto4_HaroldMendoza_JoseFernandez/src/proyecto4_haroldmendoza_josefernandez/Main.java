@@ -42,11 +42,10 @@ public class Main extends javax.swing.JFrame {
                         for (int i = 5; i < caracteristicas.length - 1; i += 2) {
                             int nivel = 0;
                             String name = "";
-                            name = caracteristicas[5];
-                            nivel = Integer.parseInt(caracteristicas[6]);
+                            name = caracteristicas[i];
+                            nivel = Integer.parseInt(caracteristicas[i+1]);
                             relacion = new Relationship(name, nivel);
                             personas.Get(personas.size() - 1).setRelatedPeople(relacion);
-                            
                         }//Fin del for
 
                         contador++;
@@ -66,6 +65,9 @@ public class Main extends javax.swing.JFrame {
 
         for (int i = 0; i < personas.size(); i++) {
             System.out.println(personas.Get(i).getNombre());
+            for (Relationship temp : personas.Get(i).relatedPeople) {
+                System.out.println(temp.toString());
+            }
         }
 
     }//Fin del metodo llenar lista
