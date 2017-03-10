@@ -24,18 +24,34 @@ public class Main extends javax.swing.JFrame {
                     //Se le asigna la linea de texto actual a la variable linea.
                     linea = scannerArchivo.nextLine();
                     if (linea.contains(",")) {
-                        
+
                         caracteristicas = linea.split(",");
                         nombre = caracteristicas[0];
                         edad = Integer.parseInt(caracteristicas[1]);
                         ciudad = caracteristicas[2];
                         estadoCivil = caracteristicas[3];
                         salario = Double.parseDouble(caracteristicas[4]);
+
+                        Relationship relacion = null;
+
                         Persona persona = new Persona(nombre, edad, ciudad, estadoCivil, salario);
                         
                        
                         personas.Insert(persona, contador);
                         personas.FixCapacity();
+                        
+                        /*
+                        for (int i = 5; i < caracteristicas.length; i += 2) {
+                            int nivel = 0;
+                            String name = "";
+                            if (i + 1 < personas.size()) {
+                                nivel = Integer.parseInt(caracteristicas[i] + 1);
+                                name = caracteristicas[i];
+                                relacion = new Relationship(name, nivel);
+                                personas.Get(personas.size() - 1).setRelatedPeople(relacion);
+                            }
+                        }//Fin del for
+                        */
                         contador++;
                     }//Fin del if
                 } catch (Exception e) {
@@ -52,6 +68,7 @@ public class Main extends javax.swing.JFrame {
         }//Fin del trycatch
         for (int i = 0; i < personas.size(); i++) {
             System.out.println(personas.Get(i).getNombre());
+          
         }
     }//Fin del metodo llenar lista
 
