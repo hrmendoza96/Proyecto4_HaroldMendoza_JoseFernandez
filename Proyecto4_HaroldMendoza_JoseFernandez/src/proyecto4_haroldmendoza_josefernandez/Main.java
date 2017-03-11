@@ -1,6 +1,8 @@
 package proyecto4_haroldmendoza_josefernandez;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
@@ -9,75 +11,6 @@ import org.graphstream.graph.implementations.SingleGraph;
 import org.graphstream.ui.view.Viewer;
 
 public class Main extends javax.swing.JFrame {
-
-    public void LlenarLista() {
-        personas = new VSArrayList(0, 1);
-        File archivo = null;
-        Scanner scannerArchivo = null;
-        archivo = new File("./Personas.txt");
-        String linea = "", nombre = "", ciudad = "", estadoCivil = "";
-        int edad = 0;
-        double salario = 0;
-        String[] caracteristicas = null;
-        int contador = 0;
-        try {
-            //Aseguramos que el scanner comienze a leer el archivo que contiene las personas.
-            scannerArchivo = new Scanner(archivo);
-            //Se lleva a cabo el for hasta que ya no haya mas texto en el archivo.
-            while (scannerArchivo.hasNextLine()) {
-                try {
-                    //Se le asigna la linea de texto actual a la variable linea.
-                    linea = scannerArchivo.nextLine();
-                    if (linea.contains(",")) {
-
-                        caracteristicas = linea.split(",");
-                        nombre = caracteristicas[0];
-                        edad = Integer.parseInt(caracteristicas[1]);
-                        ciudad = caracteristicas[2];
-                        estadoCivil = caracteristicas[3];
-                        salario = Double.parseDouble(caracteristicas[4]);
-
-                        Relationship relacion = null;
-
-                        Persona persona = new Persona(nombre, edad, ciudad, estadoCivil, salario);
-
-                        personas.Insert(persona, contador);
-                        personas.FixCapacity();
-
-                        for (int i = 5; i < caracteristicas.length - 1; i += 2) {
-                            int nivel = 0;
-                            String name = "";
-                            name = caracteristicas[i];
-                            nivel = Integer.parseInt(caracteristicas[i+1]);
-                            relacion = new Relationship(name, nivel);
-                            personas.Get(personas.size() - 1).setRelatedPeople(relacion);
-                        }//Fin del for
-
-                        contador++;
-                    }//Fin del if
-                } catch (Exception e) {
-                    System.out.println("Error");
-                }//Fin del try catch
-            }//Fin del while
-        } catch (Exception e) {
-            System.out.println("Hubo un error al leer el archivo.");
-        }//Fin del try catch
-        try {
-            scannerArchivo.close();
-        } catch (Exception e) {
-
-        }//Fin del trycatch
-
-        for (int i = 0; i < personas.size(); i++) {
-            System.out.println(personas.Get(i).getNombre());
-            for (Relationship temp : personas.Get(i).relatedPeople) {
-                System.out.println(temp.toString());
-            }
-        }
-        CrearMapaGlobal(); //se crea el grafo
-        llenarComboBox();//se llena el cb_Lista
-
-    }//Fin del metodo llenar lista
 
     public Main() {
         initComponents();
@@ -215,18 +148,16 @@ public class Main extends javax.swing.JFrame {
     private void cb_ListaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_ListaItemStateChanged
         // TODO add your handling code here:
         if (evt.getStateChange() == 2) {
-            String s =  (String) cb_Lista.getSelectedItem();
-            
-            if(cb_Lista.getSelectedIndex()!=0){//verificar que no sea el espacio vacio
+            String s = (String) cb_Lista.getSelectedItem();
+            if (cb_Lista.getSelectedIndex() != 0) {//verificar que no sea el espacio vacio
                 SelectedPerson = MapaGlobal.getNode(s);
                 b_informacion.setEnabled(true);
                 b_relatives.setEnabled(true);
-            }else{ //si se escogee el espacio en blanco, se bloquean los botones
-                SelectedPerson=null;
+            } else { //si se escogee el espacio en blanco, se bloquean los botones
+                SelectedPerson = null;
                 b_informacion.setEnabled(false);
                 b_relatives.setEnabled(false);
             }
-            
         }
     }//GEN-LAST:event_cb_ListaItemStateChanged
 
@@ -260,7 +191,7 @@ public class Main extends javax.swing.JFrame {
         });
     }
 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b_grafoPrincipal;
     private javax.swing.JButton b_informacion;
@@ -273,54 +204,130 @@ public class Main extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     VSArrayList personas;
-    
+
     Graph MapaGlobal = new SingleGraph("Global Map Routes");
-    
+
     Node SelectedPerson;
-    
-    void llenarComboBox(){
+
+    void llenarComboBox() {
+        /*Se crea un arraylist de tipo string en el cual se van a guardar
+        los nombres de todas las personas en el archivo de texto.*/
+        ArrayList<String> listadePersonas = new ArrayList();
         for (int i = 0; i < personas.size(); i++) {
-            cb_Lista.addItem(personas.Get(i).getNombre());
-        }
-    }
-    
-    void CrearMapaGlobal(){
+            listadePersonas.add(personas.Get(i).getNombre());
+        }//Fin del for que llena listadePersonas
+        /*Se utiliza la clase Collections de Java para poder ordenar
+        alfabeticamente la lista de nombres.*/
+        Collections.sort(listadePersonas);
+        for (int i = 0; i < listadePersonas.size(); i++) {
+            cb_Lista.addItem(listadePersonas.get(i));
+        }//Fin del for
+    }//Fin del metodo llenar comboBox
+
+    public void LlenarLista() {
+        personas = new VSArrayList(0, 1);
+        File archivo = null;
+        Scanner scannerArchivo = null;
+        archivo = new File("./Personas.txt");
+        String linea = "", nombre = "", ciudad = "", estadoCivil = "";
+        int edad = 0;
+        double salario = 0;
+        String[] caracteristicas = null;
+        int contador = 0;
+        try {
+            //Aseguramos que el scanner comienze a leer el archivo que contiene las personas.
+            scannerArchivo = new Scanner(archivo);
+            //Se lleva a cabo el for hasta que ya no haya mas texto en el archivo.
+            while (scannerArchivo.hasNextLine()) {
+                try {
+                    //Se le asigna la linea de texto actual a la variable linea.
+                    linea = scannerArchivo.nextLine();
+                    if (linea.contains(",")) {
+                        /*Se hace un split de la linea de texto para poder guardar todas las caracteristicas
+                        de la persona dentro de una variable Persona.*/
+                        caracteristicas = linea.split(",");
+                        nombre = caracteristicas[0];
+                        edad = Integer.parseInt(caracteristicas[1]);
+                        ciudad = caracteristicas[2];
+                        estadoCivil = caracteristicas[3];
+                        salario = Double.parseDouble(caracteristicas[4]);
+
+                        //Se crea a una persona nueva
+                        Persona persona = new Persona(nombre, edad, ciudad, estadoCivil, salario);
+                        //Se agrega a la persona a la lista de personas
+                        personas.Insert(persona, contador);
+
+                        /*El for comienza en cinco ya que los amigos de la persona comienzan a paratir
+                        de la posicion numero cinco en el arreglo llamado caracteristicas.*/
+                        for (int i = 5; i < caracteristicas.length - 1; i += 2) {
+                            int nivel = 0;
+                            String name = "";
+                            name = caracteristicas[i];
+                            nivel = Integer.parseInt(caracteristicas[i + 1]);
+                            Relationship relacion = new Relationship(name, nivel);
+                            personas.Get(personas.size() - 1).setRelatedPeople(relacion);
+                        }//Fin del for
+                        /*El contador es utilizado para manegar la posicion de insercion en la lista de personas*/
+                        contador++;
+                    }//Fin del if
+                } catch (Exception e) {
+                    System.out.println("Error");
+                }//Fin del try catch
+            }//Fin del while
+        } catch (Exception e) {
+            System.out.println("Hubo un error al leer el archivo.");
+        }//Fin del try catch
+        try {
+            scannerArchivo.close();
+        } catch (Exception e) {
+
+        }//Fin del trycatch
+
+        /*
         for (int i = 0; i < personas.size(); i++) {
-            Node a=null;
-            
-      
+            System.out.println(personas.Get(i).getNombre());
+            for (Relationship temp : personas.Get(i).relatedPeople) {
+                System.out.println(temp.toString());
+            }//Fin del for
+        }//Fin del for
+         */
+        CrearMapaGlobal(); //se crea el grafo
+        llenarComboBox();//se llena el cb_Lista
+
+    }//Fin del metodo llenar lista
+
+    void CrearMapaGlobal() {
+        for (int i = 0; i < personas.size(); i++) {
+            Node nodoPersona = null;
+
             try {
-                if(MapaGlobal.getNode(personas.Get(i).getNombre())==null){
+
+                if (MapaGlobal.getNode(personas.Get(i).getNombre()) == null) {
                     MapaGlobal.addNode(personas.Get(i).getNombre()); //se agrega la persona al grafo
-                    a = MapaGlobal.getNode(personas.Get(i).getNombre());
-                    a.addAttribute("ui.label", personas.Get(i).getNombre());
-                }else{
-                    a = MapaGlobal.getNode(personas.Get(i).getNombre());
-                }
-                for (Relationship temp: personas.Get(i).getRelatedPeople()) {
-                    Node b;
-                    if(MapaGlobal.getNode(temp.getName())==null){
+                    nodoPersona = MapaGlobal.getNode(personas.Get(i).getNombre());
+                    nodoPersona.addAttribute("ui.label", personas.Get(i).getNombre());
+                } else {
+                    nodoPersona = MapaGlobal.getNode(personas.Get(i).getNombre());
+                }//Fin del if node
+
+                for (Relationship temp : personas.Get(i).getRelatedPeople()) {
+                    Node nodoPersona2;
+                    if (MapaGlobal.getNode(temp.getName()) == null) {
                         MapaGlobal.addNode(temp.getName()); //se agrega la ciudad de amigo al grafo
-                        b = MapaGlobal.getNode(temp.getName());
-                        b.addAttribute("ui.label", temp.getName());
-                    }else{
-                        b = MapaGlobal.getNode(temp.getName());
-                    }
-                    if(MapaGlobal.getEdge(a.getId()+b.getId())==null){ // se agregan los edges 
-                        MapaGlobal.addEdge(a.getId()+b.getId(), a, b).addAttribute("Relacion", temp.getNivelRelacion());
-                        MapaGlobal.getEdge(a.getId()+b.getId()).addAttribute("ui.label","Nivel de Relacion: "+ Integer.toString(temp.getNivelRelacion()));
+                        nodoPersona2 = MapaGlobal.getNode(temp.getName());
+                        nodoPersona2.addAttribute("ui.label", temp.getName());
+                    } else {
+                        nodoPersona2 = MapaGlobal.getNode(temp.getName());
+                    }//Fin del if node
+                    if (MapaGlobal.getEdge(nodoPersona.getId() + nodoPersona2.getId()) == null) { // se agregan los edges 
+                        MapaGlobal.addEdge(nodoPersona.getId() + nodoPersona2.getId(), nodoPersona, nodoPersona2).addAttribute("Relacion", temp.getNivelRelacion());
+                        MapaGlobal.getEdge(nodoPersona.getId() + nodoPersona2.getId()).addAttribute("ui.label", "Nivel de Relacion: " + Integer.toString(temp.getNivelRelacion()));
                     }//fin if edges      
                 }//fin for
-            } catch (Exception e) {
-            }
-            
-        }
-        
-        
-        
-        
-    }
-    
 
+            } catch (Exception e) {
+            }//Fin del truy catch
+        }//Fin del for
+    }//Fin del metodo crear mapa global
 
 }//Fin de la clase

@@ -21,6 +21,7 @@ public class VSArrayList extends ADTList {
         }//Fin del for
         array.add(p, e);
         tamano++;
+        this.current_capacity++;
         return true;
     }//Fin del metodo
 
@@ -33,11 +34,11 @@ public class VSArrayList extends ADTList {
         array = temp;
         current_capacity += delta;
     }//Fin del metodo
-    
+    /*
     public void FixCapacity() {
         this.current_capacity++;
     }//Fin del metodo fixCap
-
+*/
     public VSArrayList(int current_capacity, int delta) {
         this.delta = delta;
         this.current_capacity = current_capacity;

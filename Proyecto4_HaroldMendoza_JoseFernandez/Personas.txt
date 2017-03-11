@@ -31,7 +31,7 @@ Andrea,44,Florencia,Soltera,23000,Julian,5,Steve,20,Angela,10
 Gracia,23,Tegucigalpa,Divorciada,29000,Antonio,5,Andrea,10,Paolo,20,Gerardo,5
 Rodrigo,20,Tegucigalpa,Casado,34000,Andrew,10,Luis,20,Mario,5
 Nelson,33,Roatan,Viudo,59000,Miguel,10,Manuel,20,Gracia,20
-Andre,45,Montevideo,Soltero,74000,Julia,20,Nelson,10,Bill,20,Austin,5
+Andre,45,Montevideo,Soltero,74000,Julian,20,Nelson,10,Bill,20,Austin,5
 Eduardo,33,Quito,Divorciado,44000,Kevin,10,Barbara,5,Bianca,10
 Elena,34,Bogota,Casada,65000,Marlon,5,Mike,10,Rodrigo,20
 Martin,64,Miami,Soltero,50300,Fernando,20,Miguel,20,Martha,10,Luis,20
@@ -42,7 +42,7 @@ Roberto,47,Tegucigalpa,Casado,43000,Maria,10,Harold,5,Jose,20
 Gerardo,56,Miami,Soltero,64000,Joseph,20,Antonio,10,Maria,10
 Paolo,75,Londres,Soltero,30200,Antonio,5,Julian,20,Maria,5
 Antonio,20,Acapulco,Casado,20000,Steve,5,Paolo,10,Guillermo,20
-Andrea,34,Acapulco,Divorciada,54200,Andrea,20,Maria,10,Jose,20
+Antonieta,34,Acapulco,Divorciada,54200,Andrea,20,Maria,10,Jose,20
 Maria,65,Berlin,Viuda,25000,Andrew,10,Martha,20,Andre,5,Rodrigo,10
 Angela,43,Miami,Soltero,43000,Mario,20,Maria,10,Julian,5
 Guillermo,27,Berlin,Casado,53000,Steve,5,Mario,10,Martha,20,Andre,5
