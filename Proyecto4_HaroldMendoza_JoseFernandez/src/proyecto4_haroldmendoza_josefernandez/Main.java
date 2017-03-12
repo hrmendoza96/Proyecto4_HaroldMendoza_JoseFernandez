@@ -584,9 +584,13 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this.jdialog_Agregar, "No ha seleccionado a una persona.", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             String nombre = lista_OpcionContacto.getSelectedValue();
+            /*Se crea un modelo global para usar con las jlist. Es global ya que cada vez que el usuario
+            agregue a una persona a la lista, el modelo de esta va cambiando. Asi que, si el modelo no es
+            global, en el jList solamente habria un elemento.*/
             modeloJD.addElement(nombre);
             lista_AmigosAAgregar.setModel(modeloJD);
             DefaultListModel model = (DefaultListModel) lista_OpcionContacto.getModel();
+            //Se remueve a la persona seleccionada de la lista, para no tener contactos duplicados.
             model.remove(lista_OpcionContacto.getSelectedIndex());
             lista_OpcionContacto.setModel(model);
         }//Fin del if else
@@ -599,6 +603,8 @@ public class Main extends javax.swing.JFrame {
         } else {
             ArrayList<String> nombres = new ArrayList();
             ArrayList<Integer> cantidadllamadas = new ArrayList();
+            /*Se consiguen los nombres de las personas que son contactos de la nueva persona que se acaba
+            de crear, para luego poder utilizarlos al momento de escribir en el archivo*/
             for (int i = 0; i < lista_AmigosAAgregar.getModel().getSize(); i++) {
                 nombres.add(lista_AmigosAAgregar.getModel().getElementAt(i));
             }//Fin del for
@@ -614,24 +620,25 @@ public class Main extends javax.swing.JFrame {
                 textoArchivo += "," + nombres.get(i) + "," + cantidadllamadas.get(i);
             }//Fin del for
             File archivo = null;
-            FileWriter fw = null;
-            BufferedWriter bw = null;
+            FileWriter fileWriter = null;
+            BufferedWriter bufferedWriter = null;
             try {
                 archivo = new File("./Personas.txt");
-                fw = new FileWriter(archivo, true); //el booleano significa append, agregar o no
-                bw = new BufferedWriter(fw);
-                bw.write(textoArchivo);
-                bw.newLine();
+                fileWriter = new FileWriter(archivo, true); //el booleano significa append, agregar o no
+                bufferedWriter = new BufferedWriter(fileWriter);
+                bufferedWriter.write(textoArchivo);
+                bufferedWriter.newLine();
                 //pasar a rom
-                bw.flush(); //vacía de ram a rom
+                bufferedWriter.flush(); //vacía de ram a rom
             } catch (Exception e) {
             }//Fin del try catch
             try {
-                bw.close(); //primero se cierra el buffered
-                fw.close();
+                bufferedWriter.close(); //primero se cierra el buffered
+                fileWriter.close();
             } catch (Exception e) {
             }//Fin del trycatch
             JOptionPane.showMessageDialog(this.jdialog_Agregar, "Persona agregada exitosamente.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+            /*Se limpian todos los elementos del jdialog*/
             this.jdialog_Agregar.dispose();
             DefaultListModel listModel = (DefaultListModel) lista_AmigosAAgregar.getModel();
             listModel.removeAllElements();
@@ -644,7 +651,6 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ComenzarSeguimientoMouseClicked
 
     private void b_relativesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_relativesActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_b_relativesActionPerformed
 
     public static void main(String args[]) {
