@@ -12,23 +12,26 @@ import java.util.ArrayList;
  * @author Harold Mendoza
  */
 public class Persona {
+
     protected String nombre;
     protected int edad;
     protected String ciudad;
     protected String EstadoCivil;
+
     protected double salario;
+    protected String researchMotive;
     ArrayList<Relationship> relatedPeople = new ArrayList();
-    
 
     public Persona() {
     }
 
-    public Persona(String nombre, int edad, String ciudad, String EstadoCivil, double salario) {
+    public Persona(String nombre, int edad, String ciudad, String EstadoCivil, double salario, String researchMotive) {
         this.nombre = nombre;
         this.edad = edad;
         this.ciudad = ciudad;
         this.EstadoCivil = EstadoCivil;
         this.salario = salario;
+        this.researchMotive = researchMotive;
     }
 
     public String getNombre() {
@@ -78,16 +81,18 @@ public class Persona {
     public void setRelatedPeople(Relationship related) {
         this.relatedPeople.add(related);
     }
-    
+
+    public String getResearchMotive() {
+        return researchMotive;
+    }
+
+    public void setResearchMotive(String researchMotive) {
+        this.researchMotive = researchMotive;
+    }
 
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", edad=" + edad + ", ciudad=" + ciudad + ", EstadoCivil=" + EstadoCivil + ", salario=" + salario + '}';
+        return "Persona{" + "nombre=" + nombre + ", edad=" + edad + ", ciudad=" + ciudad + ", EstadoCivil=" + EstadoCivil + ", salario=" + salario + ", researchMotive=" + researchMotive + '}';
     }
-    
-    
-    
-    
-    
-    
+
 }

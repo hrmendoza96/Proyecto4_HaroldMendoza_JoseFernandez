@@ -1,52 +1,52 @@
-Jose,18,Tegucigalpa,Soltero,54000,Harold,10,Kevin,20,Hugo,20,Juan,15,Miguel,7,Hansel,3
-Harold,20,Tegucigalpa,Casado,57000,Jose,1,Hansel,12,Barbara,3
-Hansel,18,Miami,Divorciado,22000,Ricardo,16,Marlon,11,Jose,5,Harold,10
-Alex,49,Roatan,Soltero,12000,Felipe,10,Jose,9,Fernando,5,Ramses,10
-Miguel,90,Paris,Casado,14000,Andres,5,Pablo,2,Hansel,20,Mike,10
-Andres,35,Florencia,Divorciado,27000,Victor,10,Michelle,20,Juan,5
-Hugo,28,Berlin,Soltero,81000,Joseph,4,Bianca,29,Maria,5
-Ricardo,20,Londres,Soltero,27000,Austin,11,Mike,45,Rodrigo,5,Alex,10
-Victor,40,Moscu,Viudo,54000,Ricardo,17,Kevin,5,Pablo,24,Ramon,10
-Felipe,47,Montevideo,Soltero,63000,Nelson,7,Elena,31,Michael,21
-Ramon,49,Quito,Viudo,65000,Lisandro,10,Bill,5,Jorge,10,Gracia,8
-Pablo,50,Bogota,Divorciado,96000,Andrea,17,Nelson,61,Andre,5
-Kevin,30,Miami,Casado,42000,Eduardo,20,Andrea,5,Nelson,10,Bianca,5
-Michael,35,Berlin,Soltero,10000,Martha,18,Martin,55,Luis,20
-Barbara,50,Detroit,Viuda,35000,Jose,21,Harold,10,Maria,5
-Bianca,30,Berlin,Divorciada,40000,Barbara,5,Michelle,16,Juan,40,Ramses,5
-Maria,20,Detroit,Viuda,42000,Michael,1,Barbara,12,Kevin,11,Felipe,5
-Michelle,28,Miami,Casada,20000,Maria,6,Andrea,20,Felipe,20
-Juan,29,Acapulco,Soltero,73000,Maria,5,Barbara,10,Austin,10
-Lisandro,34,Quito,Divorciado,54000,Ramses,5,Mike,13,Michelle,20
-Fernando,22,Bogota,Casado,76000,Lisandro,5,Juan,19,Harold,10
-Marlon,22,Santiago,Soltero,21000,Mike,41,Fernando,20
-Mike,30,Montevideo,Viudo,98000,Marlon,6,Barbara,18
-Ramses,20,Moscu,Viudo,88000,Andrea,3,Jose,10,Harold,29
-Austin,29,Detroit,Divorciado,32000,Mario,14,Guillermo,5,Andrew,25,Roberto,17,Ricardo,8
-Joseph,77,Londres,Soltero,123000,Paolo,20,Andrea,10,Angela,5,Mario,19
-Bill,64,Florencia,Casado,221000,Antonio,5,Julian,20,Mario,34
-Jorge,44,Paris,Viudo,10000,Maria,21,Guillermo,2,Jose,1
-Manuel,37,Quito,Divorciado,23400,Harold,7,Jose,24,Maria,17
-Andrea,44,Florencia,Soltera,23000,Julian,55,Steve,22,Angela,11
-Gracia,23,Tegucigalpa,Divorciada,29000,Antonio,65,Andrea,15,Paolo,12,Gerardo,15
-Rodrigo,20,Tegucigalpa,Casado,34000,Andrew,18,Luis,22,Mario,9
-Nelson,33,Roatan,Viudo,59000,Miguel,1,Manuel,20,Gracia,7
-Andre,45,Montevideo,Soltero,74000,Julian,23,Nelson,6,Bill,5,Austin,5
-Eduardo,33,Quito,Divorciado,44000,Kevin,10,Barbara,5,Bianca,10
-Elena,34,Bogota,Casada,65000,Marlon,55,Mike,19,Rodrigo,21
-Martin,64,Miami,Soltero,50300,Fernando,24,Miguel,22,Martha,1,Luis,20
-Martha,32,Tegucigalpa,Casada,43000,Jose,1,Harold,11,Martha,23,Andrew,10
-Luis,40,Roatan,Divorciado,51000,Roberto,5,Andrea,1,Guillermo,34
-Andrew,88,Detroit,Soltero,49000,Antonio,1,Andrea,55,Angela,14
-Roberto,47,Tegucigalpa,Casado,43000,Maria,1,Harold,2,Jose,2
-Gerardo,56,Miami,Soltero,64000,Joseph,21,Antonio,1,Maria,1
-Paolo,75,Londres,Soltero,30200,Antonio,5,Julian,25,Maria,15
-Antonio,20,Acapulco,Casado,20000,Steve,52,Paolo,6,Guillermo,2
-Antonieta,34,Acapulco,Divorciada,54200,Andrea,22,Maria,10,Jose,20
-Gregor,65,Berlin,Viudo,25000,Andrew,10,Martha,6,Andre,7,Rodrigo,11
-Angela,43,Miami,Soltero,43000,Mario,21,Maria,11,Julian,55
-Guillermo,27,Berlin,Casado,53000,Steve,5,Mario,17,Martha,11,Andre,4
-Julian,34,Acapulco,Soltero,44000,Guillermo,3,Mario,4,Miguel,4
-Steve,40,Berlin,Casado,233000,Jose,2,Harold,1,Mario,3
-Laika,25,Moscu,Soltera,25000,Hansel,3,Jose,7,Maria,1,Miguel,3
-Danelia,29,Tegucigalpa,Casada,27000,Gerardo,7,Hansel,3,Paolo,9
+Jose,18,Tegucigalpa,Soltero,54000,Hacking,Harold,10,Kevin,20,Hugo,20,Juan,15,Miguel,7,Hansel,3
+Harold,20,Tegucigalpa,Casado,57000,Hacking,Jose,1,Hansel,12,Barbara,3
+Hansel,18,Miami,Divorciado,22000,Precaution,Ricardo,16,Marlon,11,Jose,5,Harold,10
+Alex,49,Roatan,Soltero,12000,Drugs,Felipe,10,Jose,9,Fernando,5,Ramses,10
+Miguel,90,Paris,Casado,14000,Espionage,Andres,5,Pablo,2,Hansel,20,Mike,10
+Andres,35,Florencia,Divorciado,27000,Sex Traffic,Victor,10,Michelle,20,Juan,5
+Hugo,28,Berlin,Soltero,81000,Burglar,Joseph,4,Bianca,29,Maria,5
+Ricardo,20,Londres,Soltero,27000,Illegal Immigrant,Austin,11,Mike,45,Rodrigo,5,Alex,10
+Victor,40,Moscu,Viudo,54000,Precaution,Ricardo,17,Kevin,5,Pablo,24,Ramon,10
+Felipe,47,Montevideo,Soltero,63000,Drunk Driving,Nelson,7,Elena,31,Michael,21
+Ramon,49,Quito,Viudo,65000,Drunk Driving,Lisandro,10,Bill,5,Jorge,10,Gracia,8
+Pablo,50,Bogota,Divorciado,96000,Prostitution,Andrea,17,Nelson,61,Andre,5
+Kevin,30,Miami,Casado,42000,Child Pornography,Eduardo,20,Andrea,5,Nelson,10,Bianca,5
+Michael,35,Berlin,Soltero,10000,Terrorism,Martha,18,Martin,55,Luis,20
+Barbara,50,Detroit,Viuda,35000,Precaution,Jose,21,Harold,10,Maria,5
+Bianca,30,Berlin,Divorciada,40000,Precaution,Barbara,5,Michelle,16,Juan,40,Ramses,5
+Maria,20,Detroit,Viuda,42000,Drugs,Michael,1,Barbara,12,Kevin,11,Felipe,5
+Michelle,28,Miami,Casada,20000,Espionage,Maria,6,Andrea,20,Felipe,20
+Juan,29,Acapulco,Soltero,73000,Gangster,Maria,5,Barbara,10,Austin,10
+Lisandro,34,Quito,Divorciado,54000,Gangster,Ramses,5,Mike,13,Michelle,20
+Fernando,22,Bogota,Casado,76000,Burglar,Lisandro,5,Juan,19,Harold,10
+Marlon,22,Santiago,Soltero,21000,Illegal Immigrant,Mike,41,Fernando,20
+Mike,30,Montevideo,Viudo,98000,Drunk Driving,Marlon,6,Barbara,18
+Ramses,20,Moscu,Viudo,88000,Drunk Driving,Andrea,3,Jose,10,Harold,29
+Austin,29,Detroit,Divorciado,32000,Drugs,Mario,14,Guillermo,5,Andrew,25,Roberto,17,Ricardo,8
+Joseph,77,Londres,Soltero,123000,Prostitution,Paolo,20,Andrea,10,Angela,5,Mario,19
+Bill,64,Florencia,Casado,221000,Sex Trafficking,Antonio,5,Julian,20,Mario,34
+Jorge,44,Paris,Viudo,10000,Terrorism,Maria,21,Guillermo,2,Jose,1
+Manuel,37,Quito,Divorciado,23400,Gangster,Harold,7,Jose,24,Maria,17
+Andrea,44,Florencia,Soltera,23000,Drugs,Julian,55,Steve,22,Angela,11
+Gracia,23,Tegucigalpa,Divorciada,29000,Drunk Driving,Antonio,65,Andrea,15,Paolo,12,Gerardo,15
+Rodrigo,20,Tegucigalpa,Casado,34000,Precaution,Andrew,18,Luis,22,Mario,9
+Nelson,33,Roatan,Viudo,59000,Drugs,Miguel,1,Manuel,20,Gracia,7
+Andre,45,Montevideo,Soltero,74000,Terrorism,Julian,23,Nelson,6,Bill,5,Austin,5
+Eduardo,33,Quito,Divorciado,44000,Espionage,Kevin,10,Barbara,5,Bianca,10
+Elena,34,Bogota,Casada,65000,Drugs,Marlon,55,Mike,19,Rodrigo,21
+Martin,64,Miami,Soltero,50300,Drunk Driving,Fernando,24,Miguel,22,Martha,1,Luis,20
+Martha,32,Tegucigalpa,Casada,43000,Burglar,Jose,1,Harold,11,Martha,23,Andrew,10
+Luis,40,Roatan,Divorciado,51000,Precaution,Roberto,5,Andrea,1,Guillermo,34
+Andrew,88,Detroit,Soltero,49000,Sex Trafficking,Antonio,1,Andrea,55,Angela,14
+Roberto,47,Tegucigalpa,Casado,43000,Precaution,Maria,1,Harold,2,Jose,2
+Gerardo,56,Miami,Soltero,64000,Precaution,Joseph,21,Antonio,1,Maria,1
+Paolo,75,Londres,Soltero,30200,Gangster,Antonio,5,Julian,25,Maria,15
+Antonio,20,Acapulco,Casado,20000,Drugs,Steve,52,Paolo,6,Guillermo,2
+Antonieta,34,Acapulco,Divorciada,54200,Child Pornography,Andrea,22,Maria,10,Jose,20
+Gregor,65,Berlin,Viudo,25000,Illegal Immigrant,Andrew,10,Martha,6,Andre,7,Rodrigo,11
+Angela,43,Miami,Soltero,43000,Drunk Driving,Mario,21,Maria,11,Julian,55
+Guillermo,27,Berlin,Casado,53000,Espionage,Steve,5,Mario,17,Martha,11,Andre,4
+Julian,34,Acapulco,Soltero,44000,Drugs,Guillermo,3,Mario,4,Miguel,4
+Steve,40,Berlin,Casado,233000,Terrorism,Jose,2,Harold,1,Mario,3
+Laika,25,Moscu,Soltera,25000,Prostitution,Hansel,3,Jose,7,Maria,1,Miguel,3
+Danelia,29,Tegucigalpa,Casada,27000,Precaution,Gerardo,7,Hansel,3,Paolo,9

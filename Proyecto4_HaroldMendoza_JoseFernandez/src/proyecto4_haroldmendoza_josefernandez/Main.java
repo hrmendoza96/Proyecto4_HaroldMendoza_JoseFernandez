@@ -5,7 +5,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import org.graphstream.graph.Graph;
@@ -42,6 +44,8 @@ public class Main extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         tf_calls = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
+        tf_ResearchMotive = new javax.swing.JTextField();
         jdialog_Agregar = new javax.swing.JDialog();
         panel_Agregar = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -63,6 +67,8 @@ public class Main extends javax.swing.JFrame {
         tf_EstadoCPersona = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         tf_SalarioPersona = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        cb_ResearchMotive = new javax.swing.JComboBox<>();
         PanelPrincipal = new javax.swing.JPanel();
         label_Principal = new javax.swing.JLabel();
         b_grafoPrincipal = new javax.swing.JButton();
@@ -123,6 +129,13 @@ public class Main extends javax.swing.JFrame {
         tf_calls.setEditable(false);
         tf_calls.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
 
+        jLabel32.setFont(new java.awt.Font("OCR A Extended", 0, 14)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel32.setText("Research Motive:");
+
+        tf_ResearchMotive.setEditable(false);
+        tf_ResearchMotive.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
+
         javax.swing.GroupLayout panel_InformationLayout = new javax.swing.GroupLayout(panel_Information);
         panel_Information.setLayout(panel_InformationLayout);
         panel_InformationLayout.setHorizontalGroup(
@@ -161,9 +174,15 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(tf_salary)))
                     .addGroup(panel_InformationLayout.createSequentialGroup()
                         .addGap(46, 46, 46)
-                        .addComponent(jLabel31)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tf_calls, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(panel_InformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel_InformationLayout.createSequentialGroup()
+                                .addComponent(jLabel32)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_ResearchMotive))
+                            .addGroup(panel_InformationLayout.createSequentialGroup()
+                                .addComponent(jLabel31)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_calls, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         panel_InformationLayout.setVerticalGroup(
@@ -195,7 +214,11 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(tf_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel31)
                             .addComponent(tf_calls, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(panel_InformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel32)
+                    .addComponent(tf_ResearchMotive, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jd_informationLayout = new javax.swing.GroupLayout(jd_information.getContentPane());
@@ -261,6 +284,16 @@ public class Main extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Salary");
 
+        jLabel10.setFont(new java.awt.Font("OCR A Extended", 1, 16)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Research Motive");
+
+        cb_ResearchMotive.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_ResearchMotiveItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_AgregarLayout = new javax.swing.GroupLayout(panel_Agregar);
         panel_Agregar.setLayout(panel_AgregarLayout);
         panel_AgregarLayout.setHorizontalGroup(
@@ -288,39 +321,44 @@ public class Main extends javax.swing.JFrame {
                         .addGap(87, 87, 87)
                         .addComponent(btn_ComenzarSeguimiento)))
                 .addGroup(panel_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_AgregarLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                        .addGroup(panel_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tf_NombrePersona, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_AgregarLayout.createSequentialGroup()
-                                .addGap(63, 63, 63)
-                                .addComponent(jLabel6))
-                            .addComponent(tf_EdadPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tf_CiudadPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tf_EstadoCPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tf_SalarioPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(90, 90, 90))
+                    .addGroup(panel_AgregarLayout.createSequentialGroup()
+                        .addGroup(panel_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel_AgregarLayout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel8))
+                            .addGroup(panel_AgregarLayout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addGroup(panel_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tf_EdadPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf_NombrePersona, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf_CiudadPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf_EstadoCPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf_SalarioPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(panel_AgregarLayout.createSequentialGroup()
                         .addGroup(panel_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panel_AgregarLayout.createSequentialGroup()
                                 .addGap(56, 56, 56)
                                 .addGroup(panel_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
                                     .addGroup(panel_AgregarLayout.createSequentialGroup()
                                         .addGap(10, 10, 10)
-                                        .addComponent(jLabel5))
-                                    .addComponent(jLabel4)))
+                                        .addComponent(jLabel5)
+                                        .addGap(109, 109, 109)
+                                        .addGroup(panel_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cb_ResearchMotive, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                             .addGroup(panel_AgregarLayout.createSequentialGroup()
                                 .addGap(67, 67, 67)
-                                .addComponent(jLabel7)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panel_AgregarLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel8)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(jLabel7))
+                            .addGroup(panel_AgregarLayout.createSequentialGroup()
+                                .addGap(72, 72, 72)
+                                .addComponent(jLabel6)))
+                        .addContainerGap(39, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_AgregarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel9)
-                .addGap(139, 139, 139))
+                .addGap(302, 302, 302))
         );
         panel_AgregarLayout.setVerticalGroup(
             panel_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,23 +368,27 @@ public class Main extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)
+                        .addGroup(panel_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel10))
                         .addGroup(panel_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(panel_AgregarLayout.createSequentialGroup()
                                 .addGap(29, 29, 29)
                                 .addComponent(btn_PasarAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_AgregarLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(tf_NombrePersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panel_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(tf_NombrePersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cb_ResearchMotive, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel6)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tf_EdadPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tf_CiudadPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel8))
                     .addGroup(panel_AgregarLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
@@ -357,15 +399,15 @@ public class Main extends javax.swing.JFrame {
                         .addGroup(panel_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(8, 8, 8)
+                .addGap(2, 2, 2)
                 .addComponent(tf_EstadoCPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panel_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tf_SalarioPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_ComenzarSeguimiento))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGap(12, 12, 12)
+                .addGroup(panel_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_ComenzarSeguimiento)
+                    .addComponent(tf_SalarioPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jdialog_AgregarLayout = new javax.swing.GroupLayout(jdialog_Agregar.getContentPane());
@@ -512,9 +554,9 @@ public class Main extends javax.swing.JFrame {
 
     private void cb_ListaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_ListaItemStateChanged
         if (evt.getStateChange() == 2) {
-            String s = (String) cb_Lista.getSelectedItem();
+            String Cadenapersona = (String) cb_Lista.getSelectedItem();
             if (cb_Lista.getSelectedIndex() != 0) {//verificar que no sea el espacio vacio
-                SelectedPerson = MapaGlobal.getNode(s);
+                SelectedPerson = MapaGlobal.getNode(Cadenapersona);
                 b_informacion.setEnabled(true);
                 b_relatives.setEnabled(true);
             } else { //si se escogee el espacio en blanco, se bloquean los botones
@@ -531,16 +573,16 @@ public class Main extends javax.swing.JFrame {
             if (personas.Get(i).getNombre().equals(SelectedPerson.toString())) {
                 infoPersona = personas.Get(i);
                 break;
-            }
-        }
+            }//Fin del if
+        }//Fin del for
         int sumCalls = 0;
         for (Relationship temp : infoPersona.getRelatedPeople()) {
             sumCalls += temp.getCantidadLlamadas();
-        }
+        }//Fin del for
 
-        /**
-         * Se guarda la informacion del usuario en los text fields para
-         * visualizar
+        /*
+          Se guarda la informacion del usuario en los text fields para
+         visualizar
          */
         tf_name.setText(infoPersona.getNombre());
         tf_age.setText(Integer.toString(infoPersona.getEdad()));
@@ -548,9 +590,10 @@ public class Main extends javax.swing.JFrame {
         tf_status.setText(infoPersona.getEstadoCivil());
         tf_salary.setText(Double.toString(infoPersona.getSalario()));
         tf_calls.setText(Integer.toString(sumCalls));
+        tf_ResearchMotive.setText(infoPersona.getResearchMotive());
 
-        /**
-         * se manda a llamar al jdialog de informacion
+        /*
+          se manda a llamar al jdialog de informacion
          */
         this.jd_information.setModal(true); // cuando las subventas se muestre, bloqueara el frame principal
         this.jd_information.pack(); //Redimensiona la ventana dependiendo de los controles que tenga en el frame
@@ -572,6 +615,7 @@ public class Main extends javax.swing.JFrame {
         for (int i = 0; i < listadePersonas.size(); i++) {
             modelo.add(i, listadePersonas.get(i));
         }//Fin del for
+        llenarComboBoxMotivos();
         lista_OpcionContacto.setModel(modelo);
         this.jdialog_Agregar.setModal(true);
         this.jdialog_Agregar.pack();
@@ -615,7 +659,7 @@ public class Main extends javax.swing.JFrame {
             }//Fin del for
             String textoArchivo = tf_NombrePersona.getText() + "," + tf_EdadPersona.getText() + ","
                     + tf_CiudadPersona.getText() + "," + tf_EstadoCPersona.getText() + ","
-                    + tf_SalarioPersona.getText();
+                    + tf_SalarioPersona.getText() + "," + motivo;
             for (int i = 0; i < nombres.size(); i++) {
                 textoArchivo += "," + nombres.get(i) + "," + cantidadllamadas.get(i);
             }//Fin del for
@@ -651,7 +695,19 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ComenzarSeguimientoMouseClicked
 
     private void b_relativesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_relativesActionPerformed
+
     }//GEN-LAST:event_b_relativesActionPerformed
+
+    private void cb_ResearchMotiveItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_ResearchMotiveItemStateChanged
+        if (evt.getStateChange() == 2) {
+            String cadenaMotivo = (String) cb_ResearchMotive.getSelectedItem();
+            if (cb_ResearchMotive.getSelectedIndex() != 0) {//verificar que no sea el espacio vacio
+                motivo = cadenaMotivo;
+            } else { //si se escogee el espacio en blanco, se bloquean los botones
+                SelectedPerson = null;
+            }//Fin del if else
+        }//Fin del if item
+    }//GEN-LAST:event_cb_ResearchMotiveItemStateChanged
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -694,6 +750,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btn_Exit;
     private javax.swing.JButton btn_PasarAmigo;
     private javax.swing.JComboBox<String> cb_Lista;
+    private javax.swing.JComboBox<String> cb_ResearchMotive;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -704,6 +762,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -724,6 +783,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField tf_EdadPersona;
     private javax.swing.JTextField tf_EstadoCPersona;
     private javax.swing.JTextField tf_NombrePersona;
+    private javax.swing.JTextField tf_ResearchMotive;
     private javax.swing.JTextField tf_SalarioPersona;
     private javax.swing.JTextField tf_age;
     private javax.swing.JTextField tf_calls;
@@ -734,12 +794,11 @@ public class Main extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     VSArrayList personas;
-
     Graph MapaGlobal = new SingleGraph("Global Map Routes");
-
     Node SelectedPerson;
+    String motivo = "";
 
-    void llenarComboBox() {
+    void llenarComboBoxPrincipal() {
         /*Se crea un arraylist de tipo string en el cual se van a guardar
         los nombres de todas las personas en el archivo de texto.*/
         ArrayList<String> listadePersonas = new ArrayList();
@@ -754,12 +813,32 @@ public class Main extends javax.swing.JFrame {
         }//Fin del for
     }//Fin del metodo llenar comboBox
 
+    void llenarComboBoxMotivos() {
+        /*Se crea un arraylist de tipo string en el cual se van a guardar
+        los motivos de seguimiento de todas las personas en el archivo de texto.*/
+        ArrayList<String> listadeMotivos = new ArrayList();
+        for (int i = 0; i < personas.size(); i++) {
+            listadeMotivos.add(personas.Get(i).getResearchMotive());
+        }//Fin del for que llena listadePersonas
+        /*Se crea un set el cual nos quita todos los elementos 
+        dupilicados en la lista.*/
+        Set<String> citySet = new HashSet<String>(listadeMotivos);
+        listadeMotivos.clear();
+        listadeMotivos.addAll(citySet);
+        /*Se utiliza la clase Collections de Java para poder ordenar
+        alfabeticamente la lista de nombres.*/
+        Collections.sort(listadeMotivos);
+        for (int i = 0; i < listadeMotivos.size(); i++) {
+            cb_ResearchMotive.addItem(listadeMotivos.get(i));
+        }//Fin del for
+    }//Fin del metodo llenar comboBox
+
     public void LlenarLista() {
         personas = new VSArrayList(0, 1);
         File archivo = null;
         Scanner scannerArchivo = null;
         archivo = new File("./Personas.txt");
-        String linea = "", nombre = "", ciudad = "", estadoCivil = "";
+        String linea = "", nombre = "", ciudad = "", estadoCivil = "", researchMotive = "";
         int edad = 0;
         double salario = 0;
         String[] caracteristicas = null;
@@ -781,15 +860,16 @@ public class Main extends javax.swing.JFrame {
                         ciudad = caracteristicas[2];
                         estadoCivil = caracteristicas[3];
                         salario = Double.parseDouble(caracteristicas[4]);
+                        researchMotive = caracteristicas[5];
 
                         //Se crea a una persona nueva
-                        Persona persona = new Persona(nombre, edad, ciudad, estadoCivil, salario);
+                        Persona persona = new Persona(nombre, edad, ciudad, estadoCivil, salario, researchMotive);
                         //Se agrega a la persona a la lista de personas
                         personas.Insert(persona, contador);
 
-                        /*El for comienza en cinco ya que los amigos de la persona comienzan a paratir
+                        /*El for comienza en seis ya que los amigos de la persona comienzan a paratir
                         de la posicion numero cinco en el arreglo llamado caracteristicas.*/
-                        for (int i = 5; i < caracteristicas.length - 1; i += 2) {
+                        for (int i = 6; i < caracteristicas.length - 1; i += 2) {
                             int nivel = 0;
                             String name = "";
                             name = caracteristicas[i];
@@ -822,7 +902,7 @@ public class Main extends javax.swing.JFrame {
         }//Fin del for
          */
         CrearMapaGlobal(); //se crea el grafo
-        llenarComboBox();//se llena el cb_Lista
+        llenarComboBoxPrincipal();//se llena el cb_Lista
 
     }//Fin del metodo llenar lista
 
