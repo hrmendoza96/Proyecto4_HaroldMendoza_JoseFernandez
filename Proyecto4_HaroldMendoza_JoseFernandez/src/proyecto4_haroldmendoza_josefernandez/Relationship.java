@@ -12,20 +12,17 @@ package proyecto4_haroldmendoza_josefernandez;
 public class Relationship {
     String name;
     /**
-     * El Nivel de relacion se define de acuerdo a si es un Familiar,Amigo, o Conocido
-     * Familiar: 5
-     * Amigo: 10
-     * Conocido: 20
+     * La cantidad de llamadas que nuestro contacto tiene con alguien mas
      */
-    int nivelRelacion;
+    int CantidadLlamadas;
 
     public Relationship() {
     }
     
 
-    public Relationship(String name, int nivelRelacion) {
+    public Relationship(String name, int CantidadLlamadas) {
         this.name = name;
-        this.nivelRelacion = nivelRelacion;
+        this.CantidadLlamadas = CantidadLlamadas;
     }
 
     public String getName() {
@@ -36,17 +33,17 @@ public class Relationship {
         this.name = name;
     }
 
-    public int getNivelRelacion() {
-        return nivelRelacion;
+    public int getCantidadLlamadas() {
+        return CantidadLlamadas;
     }
 
-    public void setNivelRelacion(int nivelRelacion) {
-        this.nivelRelacion = nivelRelacion;
+    public void setCantidadLlamadas(int CantidadLlamadas) {
+        this.CantidadLlamadas = CantidadLlamadas;
     }
 
     @Override
     public String toString() {
-        return "Relationship{" + "name=" + name + ", nivelRelacion=" + nivelRelacion + '}';
+        return "Relationship{" + "name=" + name + ", Cantidad de Llamadas=" + CantidadLlamadas + '}';
     }
     
     
