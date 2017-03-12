@@ -23,6 +23,20 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jd_information = new javax.swing.JDialog();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        tf_name = new javax.swing.JTextField();
+        tf_age = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        tf_city = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        tf_status = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        tf_salary = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         b_grafoPrincipal = new javax.swing.JButton();
@@ -31,6 +45,122 @@ public class Main extends javax.swing.JFrame {
         b_relatives = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+
+        jPanel5.setBackground(new java.awt.Color(0, 102, 102));
+
+        jLabel24.setFont(new java.awt.Font("OCR A Extended", 0, 18)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Personal Information");
+
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/rsz_1489297719_icon-ios7-contact-outline.png"))); // NOI18N
+
+        jLabel26.setFont(new java.awt.Font("OCR A Extended", 0, 14)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setText("Name:");
+
+        tf_name.setEditable(false);
+
+        tf_age.setEditable(false);
+
+        jLabel27.setFont(new java.awt.Font("OCR A Extended", 0, 14)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel27.setText("Age:");
+
+        tf_city.setEditable(false);
+
+        jLabel28.setFont(new java.awt.Font("OCR A Extended", 0, 14)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel28.setText("City:");
+
+        tf_status.setEditable(false);
+
+        jLabel29.setFont(new java.awt.Font("OCR A Extended", 0, 14)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel29.setText("Civil Status:");
+
+        tf_salary.setEditable(false);
+
+        jLabel30.setFont(new java.awt.Font("OCR A Extended", 0, 14)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel30.setText("Salary:");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel24))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel26)
+                        .addGap(18, 18, 18)
+                        .addComponent(tf_name, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel27)
+                            .addComponent(jLabel28))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tf_city)
+                            .addComponent(tf_age))))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel25))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel30)
+                            .addComponent(jLabel29))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tf_status, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                            .addComponent(tf_salary))))
+                .addContainerGap(63, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jLabel25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(tf_status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel24)
+                .addGap(29, 29, 29)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(tf_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(tf_age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel30)
+                    .addComponent(tf_salary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(tf_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(86, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jd_informationLayout = new javax.swing.GroupLayout(jd_information.getContentPane());
+        jd_information.getContentPane().setLayout(jd_informationLayout);
+        jd_informationLayout.setHorizontalGroup(
+            jd_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jd_informationLayout.setVerticalGroup(
+            jd_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,6 +181,11 @@ public class Main extends javax.swing.JFrame {
         b_informacion.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
         b_informacion.setText("Information");
         b_informacion.setEnabled(false);
+        b_informacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_informacionActionPerformed(evt);
+            }
+        });
 
         cb_Lista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
         cb_Lista.addItemListener(new java.awt.event.ItemListener() {
@@ -161,6 +296,33 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cb_ListaItemStateChanged
 
+    private void b_informacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_informacionActionPerformed
+        // TODO add your handling code here:
+        Persona infoPersona = null;
+        for (int i = 0; i < personas.size(); i++) {
+            if(personas.Get(i).getNombre().equals(SelectedPerson.toString())){ 
+                infoPersona = personas.Get(i);
+                break;
+            }
+        }
+        /**
+         * Se guarda la informacion del usuario en los text fields para visualizar
+         */
+        tf_name.setText(infoPersona.getNombre());
+        tf_age.setText(Integer.toString(infoPersona.getEdad()));
+        tf_city.setText(infoPersona.getCiudad());
+        tf_status.setText(infoPersona.getEstadoCivil());
+        tf_salary.setText(Double.toString(infoPersona.getSalario()));
+        
+        /**
+         * se manda a llamar al jdialog de informacion
+         */
+        this.jd_information.setModal(true); // cuando las subventas se muestre, bloqueara el frame principal
+        this.jd_information.pack(); //Redimensiona la ventana dependiendo de los controles que tenga en el frame
+        this.jd_information.setLocationRelativeTo(this);
+        this.jd_information.setVisible(true);
+    }//GEN-LAST:event_b_informacionActionPerformed
+
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -199,8 +361,61 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_Lista;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JDialog jd_information;
+    private javax.swing.JTextField tf_age;
+    private javax.swing.JTextField tf_city;
+    private javax.swing.JTextField tf_ciudad;
+    private javax.swing.JTextField tf_ciudad1;
+    private javax.swing.JTextField tf_ciudad2;
+    private javax.swing.JTextField tf_edad;
+    private javax.swing.JTextField tf_edad1;
+    private javax.swing.JTextField tf_edad2;
+    private javax.swing.JTextField tf_estado;
+    private javax.swing.JTextField tf_estado1;
+    private javax.swing.JTextField tf_estado2;
+    private javax.swing.JTextField tf_name;
+    private javax.swing.JTextField tf_nombre;
+    private javax.swing.JTextField tf_nombre1;
+    private javax.swing.JTextField tf_nombre2;
+    private javax.swing.JTextField tf_salario;
+    private javax.swing.JTextField tf_salario1;
+    private javax.swing.JTextField tf_salario2;
+    private javax.swing.JTextField tf_salary;
+    private javax.swing.JTextField tf_status;
     // End of variables declaration//GEN-END:variables
 
     VSArrayList personas;
@@ -326,7 +541,7 @@ public class Main extends javax.swing.JFrame {
                 }//fin for
 
             } catch (Exception e) {
-            }//Fin del truy catch
+            }//Fin del try catch
         }//Fin del for
     }//Fin del metodo crear mapa global
 
