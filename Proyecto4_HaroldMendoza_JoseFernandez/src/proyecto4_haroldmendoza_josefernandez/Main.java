@@ -261,7 +261,7 @@ public class Main extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Name");
 
-        btn_ComenzarSeguimiento.setText("Comenzar Seguimiento");
+        btn_ComenzarSeguimiento.setText("Process Information");
         btn_ComenzarSeguimiento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_ComenzarSeguimientoMouseClicked(evt);

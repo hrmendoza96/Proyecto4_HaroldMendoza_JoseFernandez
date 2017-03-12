@@ -562,7 +562,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="btn_ComenzarSeguimiento">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Comenzar Seguimiento"/>
+                <Property name="text" type="java.lang.String" value="Process Information"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_ComenzarSeguimientoMouseClicked"/>
