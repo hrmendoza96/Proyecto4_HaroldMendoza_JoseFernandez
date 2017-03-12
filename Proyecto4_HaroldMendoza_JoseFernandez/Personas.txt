@@ -48,3 +48,4 @@ Angela,43,Miami,Soltero,43000,Mario,21,Maria,11,Julian,55
 Guillermo,27,Berlin,Casado,53000,Steve,5,Mario,17,Martha,11,Andre,4
 Julian,34,Acapulco,Soltero,44000,Guillermo,3,Mario,4,Miguel,4
 Steve,40,Berlin,Casado,233000,Jose,2,Harold,1,Mario,3
+Laika,25,Moscu,Soltera,25000,Hansel,3,Jose,7,Maria,1,Miguel,3
