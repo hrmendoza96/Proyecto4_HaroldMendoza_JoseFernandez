@@ -566,16 +566,16 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_AgregarMouseClicked
 
     private void btn_PasarAmigoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_PasarAmigoMouseClicked
-        try {
+        if (lista_OpcionContacto.getSelectedIndex() == -1) {
+            JOptionPane.showMessageDialog(this.jdialog_Agregar, "No ha seleccionado a una persona.", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
             String nombre = lista_OpcionContacto.getSelectedValue();
             modeloJD.addElement(nombre);
             lista_AmigosAAgregar.setModel(modeloJD);
             DefaultListModel model = (DefaultListModel) lista_OpcionContacto.getModel();
             model.remove(lista_OpcionContacto.getSelectedIndex());
             lista_OpcionContacto.setModel(model);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this.jdialog_Agregar, "No ha seleccionado a una persona.", "Error", JOptionPane.ERROR_MESSAGE);
-        }//Fin del try catch
+        }//Fin del if else
     }//GEN-LAST:event_btn_PasarAmigoMouseClicked
 
     private void btn_ComenzarSeguimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ComenzarSeguimientoMouseClicked
@@ -621,7 +621,6 @@ public class Main extends javax.swing.JFrame {
             this.jdialog_Agregar.dispose();
             DefaultListModel listModel = (DefaultListModel) lista_AmigosAAgregar.getModel();
             listModel.removeAllElements();
-            
             tf_NombrePersona.setText("");
             tf_EdadPersona.setText("");
             tf_CiudadPersona.setText("");
