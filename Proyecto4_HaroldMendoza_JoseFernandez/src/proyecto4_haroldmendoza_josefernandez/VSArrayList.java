@@ -72,11 +72,9 @@ public class VSArrayList extends ADTList {
 
     @Override
     public void Clear() {
-        for (int i = 0; i < size(); i++) {
-            if (array.get(i) != null) {
+        for (int i = 0; i < array.size(); i++) {
                 array.remove(i);
-                array.set(i, null);
-            }//Fin del if
+
         }//Fin del for
     }//Fin del clear
 

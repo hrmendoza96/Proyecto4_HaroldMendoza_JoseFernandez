@@ -141,48 +141,49 @@ public class Main extends javax.swing.JFrame {
         panel_InformationLayout.setHorizontalGroup(
             panel_InformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_InformationLayout.createSequentialGroup()
-                .addGroup(panel_InformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(panel_InformationLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel24))
-                    .addGroup(panel_InformationLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel26)
-                        .addGap(18, 18, 18)
-                        .addComponent(tf_name, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
-                    .addGroup(panel_InformationLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(panel_InformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel27)
-                            .addComponent(jLabel28))
-                        .addGap(18, 18, 18)
-                        .addGroup(panel_InformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tf_city)
-                            .addComponent(tf_age))))
                 .addGroup(panel_InformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_InformationLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel25))
-                    .addGroup(panel_InformationLayout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addGroup(panel_InformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel30)
-                            .addComponent(jLabel29))
-                        .addGap(18, 18, 18)
                         .addGroup(panel_InformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tf_status, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                            .addComponent(tf_salary)))
-                    .addGroup(panel_InformationLayout.createSequentialGroup()
-                        .addGap(46, 46, 46)
+                            .addGroup(panel_InformationLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel24))
+                            .addGroup(panel_InformationLayout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(jLabel26)
+                                .addGap(18, 18, 18)
+                                .addComponent(tf_name, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
+                            .addGroup(panel_InformationLayout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addGroup(panel_InformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel27)
+                                    .addComponent(jLabel28))
+                                .addGap(18, 18, 18)
+                                .addGroup(panel_InformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tf_city)
+                                    .addComponent(tf_age))))
                         .addGroup(panel_InformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panel_InformationLayout.createSequentialGroup()
-                                .addComponent(jLabel32)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tf_ResearchMotive))
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel25))
+                            .addGroup(panel_InformationLayout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addGroup(panel_InformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel30)
+                                    .addComponent(jLabel29))
+                                .addGap(18, 18, 18)
+                                .addGroup(panel_InformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tf_status, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                                    .addComponent(tf_salary)))))
+                    .addGroup(panel_InformationLayout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addComponent(jLabel32)
+                        .addGap(33, 33, 33)
+                        .addGroup(panel_InformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panel_InformationLayout.createSequentialGroup()
                                 .addComponent(jLabel31)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tf_calls, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(tf_calls, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tf_ResearchMotive, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         panel_InformationLayout.setVerticalGroup(
@@ -216,8 +217,8 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(tf_calls, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(panel_InformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel32)
-                    .addComponent(tf_ResearchMotive, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_ResearchMotive, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel32))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
@@ -234,8 +235,10 @@ public class Main extends javax.swing.JFrame {
 
         panel_Agregar.setBackground(new java.awt.Color(0, 102, 102));
 
+        lista_OpcionContacto.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
         jScrollPane1.setViewportView(lista_OpcionContacto);
 
+        lista_AmigosAAgregar.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
         jScrollPane2.setViewportView(lista_AmigosAAgregar);
 
         btn_PasarAmigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/rsz_flecha.png"))); // NOI18N
@@ -261,6 +264,9 @@ public class Main extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Name");
 
+        tf_NombrePersona.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
+
+        btn_ComenzarSeguimiento.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
         btn_ComenzarSeguimiento.setText("Process Information");
         btn_ComenzarSeguimiento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -272,22 +278,31 @@ public class Main extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Age");
 
+        tf_EdadPersona.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
+
         jLabel7.setFont(new java.awt.Font("OCR A Extended", 1, 16)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("City");
+
+        tf_CiudadPersona.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("OCR A Extended", 1, 16)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Civil Status");
 
+        tf_EstadoCPersona.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
+
         jLabel9.setFont(new java.awt.Font("OCR A Extended", 1, 16)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Salary");
+
+        tf_SalarioPersona.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
 
         jLabel10.setFont(new java.awt.Font("OCR A Extended", 1, 16)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Research Motive");
 
+        cb_ResearchMotive.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
         cb_ResearchMotive.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cb_ResearchMotiveItemStateChanged(evt);
@@ -407,7 +422,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(panel_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_ComenzarSeguimiento)
                     .addComponent(tf_SalarioPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jdialog_AgregarLayout = new javax.swing.GroupLayout(jdialog_Agregar.getContentPane());
@@ -681,6 +696,14 @@ public class Main extends javax.swing.JFrame {
                 fileWriter.close();
             } catch (Exception e) {
             }//Fin del trycatch
+            
+            /**
+             * Se limpia el VSArrayList de personas para volver a reset it con 
+             * el nuevo contacto
+             */
+            personas.Clear();
+            LlenarLista();
+            
             JOptionPane.showMessageDialog(this.jdialog_Agregar, "Persona agregada exitosamente.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
             /*Se limpian todos los elementos del jdialog*/
             this.jdialog_Agregar.dispose();
@@ -930,8 +953,8 @@ public class Main extends javax.swing.JFrame {
                         nodoPersona2 = MapaGlobal.getNode(temp.getName());
                     }//Fin del if node
                     if (MapaGlobal.getEdge(nodoPersona.getId() + nodoPersona2.getId()) == null) { // se agregan los edges 
-                        MapaGlobal.addEdge(nodoPersona.getId() + nodoPersona2.getId(), nodoPersona, nodoPersona2, true).addAttribute("Relacion", temp.getCantidadLlamadas());
-                        MapaGlobal.getEdge(nodoPersona.getId() + nodoPersona2.getId()).addAttribute("ui.label", "Nivel de Relacion: " + Integer.toString(temp.getCantidadLlamadas()));
+                        MapaGlobal.addEdge(nodoPersona.getId() + nodoPersona2.getId(), nodoPersona, nodoPersona2).addAttribute("Relacion", temp.getNivelRelacion());
+                        MapaGlobal.getEdge(nodoPersona.getId() + nodoPersona2.getId()).addAttribute("ui.label", "Nivel de Relacion: " + Integer.toString(temp.getNivelRelacion()));
                     }//fin if edges      
                 }//fin for
 
