@@ -342,6 +342,7 @@ public class Main extends javax.swing.JFrame {
         tf_salary.setText(Double.toString(infoPersona.getSalario()));
         tf_calls.setText(Integer.toString(sumCalls));
         
+        
         /**
          * se manda a llamar al jdialog de informacion
          */
@@ -565,7 +566,7 @@ public class Main extends javax.swing.JFrame {
                         nodoPersona2 = MapaGlobal.getNode(temp.getName());
                     }//Fin del if node
                     if (MapaGlobal.getEdge(nodoPersona.getId() + nodoPersona2.getId()) == null) { // se agregan los edges 
-                        MapaGlobal.addEdge(nodoPersona.getId() + nodoPersona2.getId(), nodoPersona, nodoPersona2).addAttribute("Relacion", temp.getCantidadLlamadas());
+                        MapaGlobal.addEdge(nodoPersona.getId() + nodoPersona2.getId(), nodoPersona, nodoPersona2,true).addAttribute("Relacion", temp.getCantidadLlamadas());
                         MapaGlobal.getEdge(nodoPersona.getId() + nodoPersona2.getId()).addAttribute("ui.label", "Nivel de Relacion: " + Integer.toString(temp.getCantidadLlamadas()));
                     }//fin if edges      
                 }//fin for
