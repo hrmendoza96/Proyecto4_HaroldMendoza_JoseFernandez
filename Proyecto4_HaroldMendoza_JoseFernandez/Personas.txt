@@ -43,7 +43,7 @@ Gerardo,56,Miami,Soltero,64000,Joseph,21,Antonio,1,Maria,1
 Paolo,75,Londres,Soltero,30200,Antonio,5,Julian,25,Maria,15
 Antonio,20,Acapulco,Casado,20000,Steve,52,Paolo,6,Guillermo,2
 Antonieta,34,Acapulco,Divorciada,54200,Andrea,22,Maria,10,Jose,20
-Maria,65,Berlin,Viuda,25000,Andrew,10,Martha,6,Andre,7,Rodrigo,11
+Gregor,65,Berlin,Viudo,25000,Andrew,10,Martha,6,Andre,7,Rodrigo,11
 Angela,43,Miami,Soltero,43000,Mario,21,Maria,11,Julian,55
 Guillermo,27,Berlin,Casado,53000,Steve,5,Mario,17,Martha,11,Andre,4
 Julian,34,Acapulco,Soltero,44000,Guillermo,3,Mario,4,Miguel,4
