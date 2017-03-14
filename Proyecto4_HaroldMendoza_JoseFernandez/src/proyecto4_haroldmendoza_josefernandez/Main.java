@@ -10,6 +10,7 @@ import java.util.Scanner;
 import java.util.Set;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
@@ -970,6 +971,9 @@ public class Main extends javax.swing.JFrame {
                         MapaGlobal.getEdge(nodoPersona.getId() + nodoPersona2.getId()).addAttribute("ui.label", "Nivel de Relacion: " + Integer.toString(temp.getNivelRelacion()));
                     }//fin if edges      
                 }//fin for
+                
+                
+                
 
             } catch (Exception e) {
             }//Fin del try catch
