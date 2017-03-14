@@ -1101,13 +1101,12 @@ public class Main extends javax.swing.JFrame {
                 MapaGlobal.addAttribute("ui.quality");
                 MapaGlobal.addAttribute("ui.antialias");
                 for (Node temp : MapaGlobal.getEachNode()) {
-                    temp.addAttribute("ui.style", "fill-color: rgb(211,211,211);size:10px, 10px;");
-                    temp.getAttribute("Relacion");
-                    
-                    
+                    temp.addAttribute("ui.style", "fill-color: rgb(211,211,211);size:10px, 10px;text-color: rgb(211,211,211); ");
+ 
                 }
                 for (Edge edge : MapaGlobal.getEachEdge()) {
-                    edge.addAttribute("ui.style", "fill-color: rgb(211,211,211);");
+                    edge.addAttribute("ui.style", "fill-color: rgb(211,211,211); text-color:  rgb(211,211,211);");
+                
                 }
                 
                 
