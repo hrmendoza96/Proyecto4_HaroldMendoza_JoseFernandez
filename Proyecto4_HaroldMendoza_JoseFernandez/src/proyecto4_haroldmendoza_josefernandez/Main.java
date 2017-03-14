@@ -599,6 +599,7 @@ public class Main extends javax.swing.JFrame {
           Se guarda la informacion del usuario en los text fields para
          visualizar
          */
+        cb_Lista.setSelectedIndex(0);
         tf_name.setText(infoPersona.getNombre());
         tf_age.setText(Integer.toString(infoPersona.getEdad()));
         tf_city.setText(infoPersona.getCiudad());
@@ -656,7 +657,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_PasarAmigoMouseClicked
 
     private void btn_ComenzarSeguimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ComenzarSeguimientoMouseClicked
-        if ((motivo=="")||(tf_NombrePersona.getText().equals("")) || (lista_AmigosAAgregar.getModel().getSize() == 0) || (tf_CiudadPersona.getText().equals(""))
+        if ((motivo == "") || (tf_NombrePersona.getText().equals("")) || (lista_AmigosAAgregar.getModel().getSize() == 0) || (tf_CiudadPersona.getText().equals(""))
                 || (Integer.parseInt(tf_EdadPersona.getText()) <= 0) || (tf_EstadoCPersona.getText().equals("")) || (Integer.parseInt(tf_SalarioPersona.getText()) <= 0)) {
             JOptionPane.showMessageDialog(this.jdialog_Agregar, "No esta completa la informacion de la persona.", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
@@ -668,21 +669,19 @@ public class Main extends javax.swing.JFrame {
                 nombres.add(lista_AmigosAAgregar.getModel().getElementAt(i));
             }//Fin del for
             for (int i = 0; i < nombres.size(); i++) {
-                boolean verificarInt=false;
+                boolean verificarInt = false;
                 do {
                     try {
-                         int numeroLlamadas = Integer.parseInt(JOptionPane.showInputDialog(this.jdialog_Agregar, "Ingrese la cantidad de llamadas "
-                        + "realizadas con " + nombres.get(i), "Numero de llamadas", JOptionPane.INFORMATION_MESSAGE));
-                        cantidadllamadas.add(numeroLlamadas); 
-                        verificarInt=true; 
+                        int numeroLlamadas = Integer.parseInt(JOptionPane.showInputDialog(this.jdialog_Agregar, "Ingrese la cantidad de llamadas "
+                                + "realizadas con " + nombres.get(i), "Numero de llamadas", JOptionPane.INFORMATION_MESSAGE));
+                        cantidadllamadas.add(numeroLlamadas);
+                        verificarInt = true;
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(this.jdialog_Agregar, "No ingreso un numero entero", "Error", JOptionPane.ERROR_MESSAGE);
                     }
-                    
-                } while (verificarInt==false);
-                
-                
-                
+
+                } while (verificarInt == false);
+
             }//Fin del for
             String textoArchivo = tf_NombrePersona.getText() + "," + tf_EdadPersona.getText() + ","
                     + tf_CiudadPersona.getText() + "," + tf_EstadoCPersona.getText() + ","
@@ -708,16 +707,17 @@ public class Main extends javax.swing.JFrame {
                 fileWriter.close();
             } catch (Exception e) {
             }//Fin del trycatch
-            
+
             /**
-             * Se limpia el VSArrayList de personas para volver a reset it con 
+             * Se limpia el VSArrayList de personas para volver a reset it con
              * el nuevo contacto
              */
             personas.Clear();
             LlenarLista();
-            
+
             JOptionPane.showMessageDialog(this.jdialog_Agregar, "Persona agregada exitosamente.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
             /*Se limpian todos los elementos del jdialog*/
+            cb_ResearchMotive.setSelectedIndex(0);
             this.jdialog_Agregar.dispose();
             DefaultListModel listModel = (DefaultListModel) lista_AmigosAAgregar.getModel();
             listModel.removeAllElements();
