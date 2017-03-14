@@ -1097,14 +1097,17 @@ public class Main extends javax.swing.JFrame {
                     }//fin if edges      
                 }//fin for
                 
-                //MapaGlobal.addAttribute("ui.stylesheet", "graph { fill-color: rgb(153,153,153); }");
+                MapaGlobal.addAttribute("ui.stylesheet", "graph { fill-color: rgb(0,0,0); }");
                 MapaGlobal.addAttribute("ui.quality");
                 MapaGlobal.addAttribute("ui.antialias");
                 for (Node temp : MapaGlobal.getEachNode()) {
-                    temp.addAttribute("ui.style", "fill-color: rgb(102,51,0);");
-                    temp.addAttribute("ui.style", "size:30px, 30px;");
-                    temp.addAttribute("ui.style", "rounded-box: text-background-color");
+                    temp.addAttribute("ui.style", "fill-color: rgb(211,211,211);size:10px, 10px;");
+                    temp.getAttribute("Relacion");
                     
+                    
+                }
+                for (Edge edge : MapaGlobal.getEachEdge()) {
+                    edge.addAttribute("ui.style", "fill-color: rgb(211,211,211);");
                 }
                 
                 
