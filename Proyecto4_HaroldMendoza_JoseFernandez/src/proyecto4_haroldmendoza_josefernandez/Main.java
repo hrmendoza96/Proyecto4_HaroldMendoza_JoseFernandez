@@ -656,7 +656,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_PasarAmigoMouseClicked
 
     private void btn_ComenzarSeguimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ComenzarSeguimientoMouseClicked
-        if ((tf_NombrePersona.getText().equals("")) || (lista_AmigosAAgregar.getModel().getSize() == 0) || (tf_CiudadPersona.getText().equals(""))
+        if ((motivo=="")||(tf_NombrePersona.getText().equals("")) || (lista_AmigosAAgregar.getModel().getSize() == 0) || (tf_CiudadPersona.getText().equals(""))
                 || (Integer.parseInt(tf_EdadPersona.getText()) <= 0) || (tf_EstadoCPersona.getText().equals("")) || (Integer.parseInt(tf_SalarioPersona.getText()) <= 0)) {
             JOptionPane.showMessageDialog(this.jdialog_Agregar, "No esta completa la informacion de la persona.", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
@@ -668,9 +668,21 @@ public class Main extends javax.swing.JFrame {
                 nombres.add(lista_AmigosAAgregar.getModel().getElementAt(i));
             }//Fin del for
             for (int i = 0; i < nombres.size(); i++) {
-                int numeroLlamadas = Integer.parseInt(JOptionPane.showInputDialog(this.jdialog_Agregar, "Ingrese la cantidad de llamadas"
+                boolean verificarInt=false;
+                do {
+                    try {
+                         int numeroLlamadas = Integer.parseInt(JOptionPane.showInputDialog(this.jdialog_Agregar, "Ingrese la cantidad de llamadas "
                         + "realizadas con " + nombres.get(i), "Numero de llamadas", JOptionPane.INFORMATION_MESSAGE));
-                cantidadllamadas.add(numeroLlamadas);
+                        cantidadllamadas.add(numeroLlamadas); 
+                        verificarInt=true; 
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(this.jdialog_Agregar, "No ingreso un numero entero", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                    
+                } while (verificarInt==false);
+                
+                
+                
             }//Fin del for
             String textoArchivo = tf_NombrePersona.getText() + "," + tf_EdadPersona.getText() + ","
                     + tf_CiudadPersona.getText() + "," + tf_EstadoCPersona.getText() + ","
@@ -723,11 +735,12 @@ public class Main extends javax.swing.JFrame {
 
     private void cb_ResearchMotiveItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_ResearchMotiveItemStateChanged
         if (evt.getStateChange() == 2) {
+            motivo = "";
             String cadenaMotivo = (String) cb_ResearchMotive.getSelectedItem();
             if (cb_ResearchMotive.getSelectedIndex() != 0) {//verificar que no sea el espacio vacio
                 motivo = cadenaMotivo;
             } else { //si se escogee el espacio en blanco, se bloquean los botones
-                SelectedPerson = null;
+                motivo = "";
             }//Fin del if else
         }//Fin del if item
     }//GEN-LAST:event_cb_ResearchMotiveItemStateChanged

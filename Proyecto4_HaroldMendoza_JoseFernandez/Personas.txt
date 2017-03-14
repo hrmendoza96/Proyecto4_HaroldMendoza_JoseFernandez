@@ -58,3 +58,4 @@ Sandra,40,New York,Casada,100000,Precaution,Pablo,4,Rodrigo,50,Guillermo,6
 Mel,60,San Pedro Sula,Casado,70000,Precaution,Sandra,4,Nelson,65
 Wilmer,89,Miami,Soltero,450000,Gangster,Ricardo,60,Sandra,70,Mel,54
 Thiago,29,Munic,Soltero,170000,Drugs,Angela,5,Alex,9,Kevin,3,Laika,50
+Monica,23,Miami,Comprometida,132222,Drunk Driving,Angela,5
