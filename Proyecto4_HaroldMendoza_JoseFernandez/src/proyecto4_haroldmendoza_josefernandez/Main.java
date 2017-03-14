@@ -10,6 +10,7 @@ import java.util.Scanner;
 import java.util.Set;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+
 import org.graphstream.algorithm.Dijkstra;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
@@ -1095,6 +1096,18 @@ public class Main extends javax.swing.JFrame {
                         MapaGlobal.getEdge(nodoPersona.getId() + nodoPersona2.getId()).addAttribute("ui.label", "Nivel de Relacion: " + Integer.toString(temp.getNivelRelacion()));
                     }//fin if edges      
                 }//fin for
+                
+                //MapaGlobal.addAttribute("ui.stylesheet", "graph { fill-color: rgb(153,153,153); }");
+                MapaGlobal.addAttribute("ui.quality");
+                MapaGlobal.addAttribute("ui.antialias");
+                for (Node temp : MapaGlobal.getEachNode()) {
+                    temp.addAttribute("ui.style", "fill-color: rgb(102,51,0);");
+                    temp.addAttribute("ui.style", "size:30px, 30px;");
+                    temp.addAttribute("ui.style", "rounded-box: text-background-color");
+                    
+                }
+                
+                
 
             } catch (Exception e) {
             }//Fin del try catch
