@@ -74,7 +74,7 @@ public class Main extends javax.swing.JFrame {
         b_grafoPrincipal = new javax.swing.JButton();
         b_informacion = new javax.swing.JButton();
         cb_Lista = new javax.swing.JComboBox<>();
-        b_relatives = new javax.swing.JButton();
+        b_connections = new javax.swing.JButton();
         btn_Exit = new javax.swing.JButton();
         label_Imagen = new javax.swing.JLabel();
         btn_Agregar = new javax.swing.JButton();
@@ -468,12 +468,12 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        b_relatives.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
-        b_relatives.setText("RELATIVES");
-        b_relatives.setEnabled(false);
-        b_relatives.addActionListener(new java.awt.event.ActionListener() {
+        b_connections.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
+        b_connections.setText("CONNECTIONS");
+        b_connections.setEnabled(false);
+        b_connections.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_relativesActionPerformed(evt);
+                b_connectionsActionPerformed(evt);
             }
         });
 
@@ -512,14 +512,14 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(b_grafoPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(PanelPrincipalLayout.createSequentialGroup()
-                        .addGap(262, 262, 262)
-                        .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(b_informacion)
-                            .addComponent(btn_Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(b_relatives, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(PanelPrincipalLayout.createSequentialGroup()
                         .addGap(186, 186, 186)
-                        .addComponent(cb_Lista, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cb_Lista, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                        .addGap(262, 262, 262)
+                        .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(b_connections, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(b_informacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_Exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelPrincipalLayout.setVerticalGroup(
@@ -537,9 +537,9 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(cb_Lista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
                 .addComponent(b_informacion)
-                .addGap(48, 48, 48)
-                .addComponent(b_relatives)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
+                .addComponent(b_connections)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
                 .addComponent(btn_Exit)
                 .addGap(44, 44, 44))
         );
@@ -573,11 +573,11 @@ public class Main extends javax.swing.JFrame {
             if (cb_Lista.getSelectedIndex() != 0) {//verificar que no sea el espacio vacio
                 SelectedPerson = MapaGlobal.getNode(Cadenapersona);
                 b_informacion.setEnabled(true);
-                b_relatives.setEnabled(true);
+                b_connections.setEnabled(true);
             } else { //si se escogee el espacio en blanco, se bloquean los botones
                 SelectedPerson = null;
                 b_informacion.setEnabled(false);
-                b_relatives.setEnabled(false);
+                b_connections.setEnabled(false);
             }//Fin del if else
         }//Fin del if item
     }//GEN-LAST:event_cb_ListaItemStateChanged
@@ -729,9 +729,9 @@ public class Main extends javax.swing.JFrame {
         }//Fin del if else
     }//GEN-LAST:event_btn_ComenzarSeguimientoMouseClicked
 
-    private void b_relativesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_relativesActionPerformed
+    private void b_connectionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_connectionsActionPerformed
 
-    }//GEN-LAST:event_b_relativesActionPerformed
+    }//GEN-LAST:event_b_connectionsActionPerformed
 
     private void cb_ResearchMotiveItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_ResearchMotiveItemStateChanged
         if (evt.getStateChange() == 2) {
@@ -778,9 +778,9 @@ public class Main extends javax.swing.JFrame {
     DefaultListModel modeloJD = new DefaultListModel();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelPrincipal;
+    private javax.swing.JButton b_connections;
     private javax.swing.JButton b_grafoPrincipal;
     private javax.swing.JButton b_informacion;
-    private javax.swing.JButton b_relatives;
     private javax.swing.JButton btn_Agregar;
     private javax.swing.JButton btn_ComenzarSeguimiento;
     private javax.swing.JButton btn_Exit;
