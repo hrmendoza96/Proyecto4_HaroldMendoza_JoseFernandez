@@ -10,8 +10,11 @@ import java.util.Scanner;
 import java.util.Set;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import org.graphstream.algorithm.Dijkstra;
+import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
+import org.graphstream.graph.Path;
 import org.graphstream.graph.implementations.SingleGraph;
 import org.graphstream.ui.view.Viewer;
 
@@ -69,6 +72,11 @@ public class Main extends javax.swing.JFrame {
         tf_SalarioPersona = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         cb_ResearchMotive = new javax.swing.JComboBox<>();
+        jd_Connections = new javax.swing.JDialog();
+        jPanel1 = new javax.swing.JPanel();
+        cb_Persona1 = new javax.swing.JComboBox<>();
+        cb_Persona2 = new javax.swing.JComboBox<>();
+        btn_viewConnections = new javax.swing.JButton();
         PanelPrincipal = new javax.swing.JPanel();
         label_Principal = new javax.swing.JLabel();
         b_grafoPrincipal = new javax.swing.JButton();
@@ -436,6 +444,58 @@ public class Main extends javax.swing.JFrame {
             .addComponent(panel_Agregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+
+        cb_Persona1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+
+        cb_Persona2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+
+        btn_viewConnections.setText("View Connections");
+        btn_viewConnections.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_viewConnectionsMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(cb_Persona1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(88, 88, 88)
+                        .addComponent(cb_Persona2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(btn_viewConnections, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_Persona1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_Persona2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(btn_viewConnections)
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jd_ConnectionsLayout = new javax.swing.GroupLayout(jd_Connections.getContentPane());
+        jd_Connections.getContentPane().setLayout(jd_ConnectionsLayout);
+        jd_ConnectionsLayout.setHorizontalGroup(
+            jd_ConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jd_ConnectionsLayout.setVerticalGroup(
+            jd_ConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         PanelPrincipal.setBackground(new java.awt.Color(0, 102, 102));
@@ -470,7 +530,6 @@ public class Main extends javax.swing.JFrame {
 
         b_connections.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
         b_connections.setText("CONNECTIONS");
-        b_connections.setEnabled(false);
         b_connections.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_connectionsActionPerformed(evt);
@@ -730,7 +789,11 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ComenzarSeguimientoMouseClicked
 
     private void b_connectionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_connectionsActionPerformed
-
+        llenarComboBoxesPersonas();
+        this.jd_Connections.setModal(true);
+        this.jd_Connections.pack();
+        this.jd_Connections.setLocationRelativeTo(this);
+        this.jd_Connections.setVisible(true);
     }//GEN-LAST:event_b_connectionsActionPerformed
 
     private void cb_ResearchMotiveItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_ResearchMotiveItemStateChanged
@@ -744,6 +807,47 @@ public class Main extends javax.swing.JFrame {
             }//Fin del if else
         }//Fin del if item
     }//GEN-LAST:event_cb_ResearchMotiveItemStateChanged
+
+    private void btn_viewConnectionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_viewConnectionsMouseClicked
+        if (cb_Persona1.getSelectedIndex() == cb_Persona2.getSelectedIndex()) {
+            JOptionPane.showMessageDialog(this.jd_Connections, "No puede seleccionar la misma persona.", "Hmm...", JOptionPane.ERROR_MESSAGE);
+        } else {
+            /*Se crea el grafo secundario para mostrar la ruta mas barata.*/
+            Graph graphSecundario = new SingleGraph("Relationship");
+
+            //Se crea Dijkstra teniendo como base la distancia.
+            Dijkstra dijkstra = new Dijkstra(Dijkstra.Element.EDGE, null, "Relacion");
+            dijkstra.init(MapaGlobal);
+
+            Node persona1 = MapaGlobal.getNode(cb_Persona1.getSelectedItem().toString());
+            Node persona2 = MapaGlobal.getNode(cb_Persona2.getSelectedItem().toString());
+            dijkstra.setSource(persona1);
+            dijkstra.compute();
+            Path camino = dijkstra.getPath(persona2);
+
+            graphSecundario.setStrict(false);
+            graphSecundario.setAutoCreate(false);
+
+            for (Edge edge : camino.getEdgePath()) {
+                /*Se crean dos nodos, los que estan en ambos opuestos de las aristas,
+            los cuales van cambiando mediante la ruta sigue.*/
+                Node person1 = edge.getNode1();
+                Node person2 = edge.getOpposite(person1);
+
+                /*Se crea la arista que une los dos nodos creados. Luego se le
+            agregan los atributos y se muestra el grafo.*/
+                graphSecundario.addNode(person1.getId()).addAttribute("ui.label", person1.getId());
+                graphSecundario.addNode(person2.getId()).addAttribute("ui.label", person2.getId());
+                graphSecundario.addEdge(person2.getId() + person1.getId(), person2.getId(), person1.getId()).addAttribute("ui.label", edge.getAttribute("Relacion").toString());;
+            }//Fin del for
+
+            this.jd_Connections.dispose();
+            cb_Persona1.setSelectedIndex(0);
+            cb_Persona2.setSelectedIndex(0);
+            Viewer viewer = graphSecundario.display();
+            viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
+        }//Fin del else if  1
+    }//GEN-LAST:event_btn_viewConnectionsMouseClicked
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -785,7 +889,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btn_ComenzarSeguimiento;
     private javax.swing.JButton btn_Exit;
     private javax.swing.JButton btn_PasarAmigo;
+    private javax.swing.JButton btn_viewConnections;
     private javax.swing.JComboBox<String> cb_Lista;
+    private javax.swing.JComboBox<String> cb_Persona1;
+    private javax.swing.JComboBox<String> cb_Persona2;
     private javax.swing.JComboBox<String> cb_ResearchMotive;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -805,8 +912,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JDialog jd_Connections;
     private javax.swing.JDialog jd_information;
     private javax.swing.JDialog jdialog_Agregar;
     private javax.swing.JLabel label_Imagen;
@@ -848,6 +957,22 @@ public class Main extends javax.swing.JFrame {
             cb_Lista.addItem(listadePersonas.get(i));
         }//Fin del for
     }//Fin del metodo llenar comboBox
+
+    void llenarComboBoxesPersonas() {
+        /*Se crea un arraylist de tipo string en el cual se van a guardar
+        los nombres de todas las personas en el archivo de texto.*/
+        ArrayList<String> listadePersonas = new ArrayList();
+        for (int i = 0; i < personas.size(); i++) {
+            listadePersonas.add(personas.Get(i).getNombre());
+        }//Fin del for que llena listadePersonas
+        /*Se utiliza la clase Collections de Java para poder ordenar
+        alfabeticamente la lista de nombres.*/
+        Collections.sort(listadePersonas);
+        for (int i = 0; i < listadePersonas.size(); i++) {
+            cb_Persona1.addItem(listadePersonas.get(i));
+            cb_Persona2.addItem(listadePersonas.get(i));
+        }//Fin del for
+    }//Fin del metodo
 
     void llenarComboBoxMotivos() {
         /*Se crea un arraylist de tipo string en el cual se van a guardar
