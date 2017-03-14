@@ -12,10 +12,13 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 import org.graphstream.algorithm.Dijkstra;
+import org.graphstream.algorithm.Kruskal;
+import org.graphstream.algorithm.generator.DorogovtsevMendesGenerator;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.Path;
+import org.graphstream.graph.implementations.DefaultGraph;
 import org.graphstream.graph.implementations.SingleGraph;
 import org.graphstream.ui.view.Viewer;
 
@@ -557,6 +560,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         jButton1.setText("Universal Conection");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelPrincipalLayout = new javax.swing.GroupLayout(PanelPrincipal);
         PanelPrincipal.setLayout(PanelPrincipalLayout);
@@ -862,6 +870,13 @@ public class Main extends javax.swing.JFrame {
         }//Fin del else if  1
     }//GEN-LAST:event_btn_viewConnectionsMouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Kruskal kruskal = new Kruskal();
+        kruskal.init(MapaGlobal);
+        kruskal.compute();
+        System.out.println(kruskal.getTreeEdges().toString());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -1109,20 +1124,18 @@ public class Main extends javax.swing.JFrame {
                         MapaGlobal.getEdge(nodoPersona.getId() + nodoPersona2.getId()).addAttribute("ui.label", "Nivel de Relacion: " + Integer.toString(temp.getNivelRelacion()));
                     }//fin if edges      
                 }//fin for
-                
+
                 MapaGlobal.addAttribute("ui.stylesheet", "graph { fill-color: rgb(0,0,0); }");
                 MapaGlobal.addAttribute("ui.quality");
                 MapaGlobal.addAttribute("ui.antialias");
                 for (Node temp : MapaGlobal.getEachNode()) {
                     temp.addAttribute("ui.style", "fill-color: rgb(211,211,211);size:10px, 10px;text-color: rgb(211,211,211); ");
- 
+
                 }
                 for (Edge edge : MapaGlobal.getEachEdge()) {
                     edge.addAttribute("ui.style", "fill-color: rgb(211,211,211); text-color:  rgb(211,211,211);");
-                
+
                 }
-                
-                
 
             } catch (Exception e) {
             }//Fin del try catch
