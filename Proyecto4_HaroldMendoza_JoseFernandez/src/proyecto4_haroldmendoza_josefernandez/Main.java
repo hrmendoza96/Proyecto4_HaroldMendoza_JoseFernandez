@@ -582,26 +582,26 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(cb_Lista, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(183, 183, 183))))
             .addGroup(PanelPrincipalLayout.createSequentialGroup()
-                .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelPrincipalLayout.createSequentialGroup()
-                        .addGap(265, 265, 265)
-                        .addComponent(label_Imagen))
-                    .addGroup(PanelPrincipalLayout.createSequentialGroup()
-                        .addGap(250, 250, 250)
-                        .addComponent(btn_Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPrincipalLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(b_connections, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                            .addComponent(b_informacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(PanelPrincipalLayout.createSequentialGroup()
                 .addGap(235, 235, 235)
-                .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(b_grafoPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(b_connections, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                    .addComponent(btn_Agregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(b_grafoPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(b_informacion, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                            .addGap(265, 265, 265)
+                            .addComponent(label_Imagen))
+                        .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                            .addGap(250, 250, 250)
+                            .addComponent(btn_Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                            .addGap(238, 238, 238)
+                            .addComponent(jButton1))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelPrincipalLayout.setVerticalGroup(
             PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -612,17 +612,17 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(label_Imagen)
                 .addGap(39, 39, 39)
                 .addComponent(b_grafoPrincipal)
-                .addGap(42, 42, 42)
+                .addGap(18, 18, 18)
                 .addComponent(btn_Agregar)
-                .addGap(36, 36, 36)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(cb_Lista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(b_informacion)
-                .addGap(41, 41, 41)
+                .addGap(18, 18, 18)
                 .addComponent(b_connections)
-                .addGap(50, 50, 50)
+                .addGap(51, 51, 51)
+                .addComponent(cb_Lista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addComponent(b_informacion)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(80, 80, 80)
                 .addComponent(btn_Exit)
                 .addGap(44, 44, 44))
         );
@@ -665,7 +665,7 @@ public class Main extends javax.swing.JFrame {
             } else { //si se escogee el espacio en blanco, se bloquean los botones
                 SelectedPerson = null;
                 b_informacion.setEnabled(false);
-                b_connections.setEnabled(false);
+               
             }//Fin del if else
         }//Fin del if item
     }//GEN-LAST:event_cb_ListaItemStateChanged
@@ -869,6 +869,17 @@ public class Main extends javax.swing.JFrame {
                 graphSecundario.addNode(person2.getId()).addAttribute("ui.label", person2.getId());
                 graphSecundario.addEdge(person2.getId() + person1.getId(), person2.getId(), person1.getId()).addAttribute("ui.label", edge.getAttribute("Relacion").toString());;
             }//Fin del for
+                graphSecundario.addAttribute("ui.stylesheet", "graph { fill-color: rgb(0,0,0); }");
+                graphSecundario.addAttribute("ui.quality");
+                graphSecundario.addAttribute("ui.antialias");
+               
+                for (Node temp : graphSecundario.getEachNode()) {
+                    temp.addAttribute("ui.style", "fill-color: rgb(107,142,35);size:10px,10px;text-color: rgb(107,142,35);");
+
+                }
+                for (Edge edge : graphSecundario.getEachEdge()) {
+                    edge.addAttribute("ui.style", "fill-color: rgb(47,79,79); text-color:  rgb(211,211,211);");
+                }
 
             this.jd_Connections.dispose();
             cb_Persona1.setSelectedIndex(0);
@@ -1136,19 +1147,7 @@ public class Main extends javax.swing.JFrame {
                 MapaGlobal.addAttribute("ui.stylesheet", "graph { fill-color: rgb(0,0,0); }");
                 MapaGlobal.addAttribute("ui.quality");
                 MapaGlobal.addAttribute("ui.antialias");
-                for (Node temp : MapaGlobal.getEachNode()) {
-
-                    temp.addAttribute("ui.style", "fill-color: rgb(211,211,211);size:10px, 10px;text-color: rgb(211,211,211); ");
-
-                    temp.addAttribute("ui.style", "fill-color: rgb(211,211,211);size:10px,10px;text-color: rgb(211,211,211);");
-
-                }
-                for (Edge edge : MapaGlobal.getEachEdge()) {
-                    edge.addAttribute("ui.style", "fill-color: rgb(211,211,211); text-color:  rgb(211,211,211);");
-                }
-                //MapaGlobal.addAttribute("ui.stylesheet", "graph { fill-color: rgb(0,0,0); }");
-                MapaGlobal.addAttribute("ui.quality");
-                MapaGlobal.addAttribute("ui.antialias");
+               
                 for (Node temp : MapaGlobal.getEachNode()) {
                     temp.addAttribute("ui.style", "fill-color: rgb(107,142,35);size:10px,10px;text-color: rgb(107,142,35);");
 
@@ -1156,6 +1155,7 @@ public class Main extends javax.swing.JFrame {
                 for (Edge edge : MapaGlobal.getEachEdge()) {
                     edge.addAttribute("ui.style", "fill-color: rgb(47,79,79); text-color:  rgb(211,211,211);");
                 }
+            
 
             } catch (Exception e) {
             }//Fin del try catch
