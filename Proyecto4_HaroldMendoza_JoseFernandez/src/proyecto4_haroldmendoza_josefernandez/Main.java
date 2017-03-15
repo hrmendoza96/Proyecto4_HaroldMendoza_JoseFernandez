@@ -628,6 +628,7 @@ public class Main extends javax.swing.JFrame {
         View view = viewer.getDefaultView();
         view.getCamera().setViewCenter(2, 3, 2);
         view.getCamera().setViewPercent(0.5);
+        
         viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
         
     }//GEN-LAST:event_b_grafoPrincipalActionPerformed
