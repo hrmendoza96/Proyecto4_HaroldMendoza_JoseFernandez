@@ -646,10 +646,11 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ExitActionPerformed
 
     private void b_grafoPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_grafoPrincipalActionPerformed
+       // CrearMapaGlobal();
         Viewer viewer = MapaGlobal.display(); //display el grafo
-        View view = viewer.getDefaultView();
-        view.getCamera().setViewCenter(2, 3, 2);
-        view.getCamera().setViewPercent(0.5);
+       //View view = viewer.getDefaultView();
+        //view.getCamera().setViewCenter(2, 3, 2);
+        //view.getCamera().setViewPercent(0.5);
 
         viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
 
@@ -891,7 +892,7 @@ public class Main extends javax.swing.JFrame {
 
     private void btn_UniversalConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_UniversalConnectionActionPerformed
         Graph MapaGlobal2 = MapaGlobal;
-
+        
         /*Se crea un string en el cual se van a guardar todos las condiciones del css del grafo*/
         String css = "edge .notintree {size:1px;fill-color:slategray;} "
                 + "edge .intree {size:3px;fill-color:cornsilk;}" + "graph { fill-color: rgb(47,79,79); }";
@@ -915,7 +916,7 @@ public class Main extends javax.swing.JFrame {
         Kruskal kruskal = new Kruskal("ui.class", "intree", "notintree");
         kruskal.init(MapaGlobal2);
         kruskal.compute();
-
+        CrearMapaGlobal();
     }//GEN-LAST:event_btn_UniversalConnectionActionPerformed
 
     public static void main(String args[]) {
