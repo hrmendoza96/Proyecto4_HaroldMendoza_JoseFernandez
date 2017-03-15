@@ -1,5 +1,9 @@
 package proyecto4_haroldmendoza_josefernandez;
 
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -13,13 +17,13 @@ import javax.swing.JOptionPane;
 
 import org.graphstream.algorithm.Dijkstra;
 import org.graphstream.algorithm.Kruskal;
-import org.graphstream.algorithm.generator.DorogovtsevMendesGenerator;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.Path;
-import org.graphstream.graph.implementations.DefaultGraph;
 import org.graphstream.graph.implementations.SingleGraph;
+import org.graphstream.ui.swingViewer.DefaultView;
+import org.graphstream.ui.swingViewer.ViewPanel;
 import org.graphstream.ui.view.View;
 import org.graphstream.ui.view.Viewer;
 
@@ -78,7 +82,7 @@ public class Main extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         cb_ResearchMotive = new javax.swing.JComboBox<>();
         jd_Connections = new javax.swing.JDialog();
-        jPanel1 = new javax.swing.JPanel();
+        p_con = new javax.swing.JPanel();
         cb_Persona1 = new javax.swing.JComboBox<>();
         cb_Persona2 = new javax.swing.JComboBox<>();
         btn_viewConnections = new javax.swing.JButton();
@@ -450,7 +454,7 @@ public class Main extends javax.swing.JFrame {
             .addComponent(panel_Agregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        p_con.setBackground(new java.awt.Color(0, 102, 102));
 
         cb_Persona1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
 
@@ -463,43 +467,43 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout p_conLayout = new javax.swing.GroupLayout(p_con);
+        p_con.setLayout(p_conLayout);
+        p_conLayout.setHorizontalGroup(
+            p_conLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p_conLayout.createSequentialGroup()
+                .addGroup(p_conLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(p_conLayout.createSequentialGroup()
                         .addGap(138, 138, 138)
                         .addComponent(btn_viewConnections, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(p_conLayout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(cb_Persona1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(88, 88, 88)
                         .addComponent(cb_Persona2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        p_conLayout.setVerticalGroup(
+            p_conLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p_conLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(p_conLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cb_Persona1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cb_Persona2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(btn_viewConnections)
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jd_ConnectionsLayout = new javax.swing.GroupLayout(jd_Connections.getContentPane());
         jd_Connections.getContentPane().setLayout(jd_ConnectionsLayout);
         jd_ConnectionsLayout.setHorizontalGroup(
             jd_ConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(p_con, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jd_ConnectionsLayout.setVerticalGroup(
             jd_ConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(p_con, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -844,6 +848,9 @@ public class Main extends javax.swing.JFrame {
         } else {
             /*Se crea el grafo secundario para mostrar la ruta mas barata.*/
             Graph graphSecundario = new SingleGraph("Relationship");
+            
+            
+            
 
             //Se crea Dijkstra teniendo como base la distancia.
             Dijkstra dijkstra = new Dijkstra(Dijkstra.Element.EDGE, null, "Relacion");
@@ -882,11 +889,32 @@ public class Main extends javax.swing.JFrame {
                 edge.addAttribute("ui.style", "fill-color: rgb(47,79,79); text-color:  rgb(211,211,211);");
             }
 
-            this.jd_Connections.dispose();
+            //this.jd_Connections.dispose();
             cb_Persona1.setSelectedIndex(0);
             cb_Persona2.setSelectedIndex(0);
-            Viewer viewer = graphSecundario.display();
-            viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
+            
+            Viewer viewer = new Viewer(graphSecundario, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);           
+           // DefaultView view = (DefaultView) viewer.addDefaultView(false);
+            ViewPanel view = viewer.addDefaultView(false);
+            p_con.add(view);
+            
+            view.setPreferredSize(new Dimension(200, 250));
+            p_con.setLayout(new FlowLayout());
+            
+            //jd_Connections.add(view);
+            jd_Connections.pack();
+            
+            
+            viewer.enableAutoLayout();
+            
+            
+            
+            
+            
+            
+            
+           // Viewer viewer = graphSecundario.display();
+            //viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
         }//Fin del else if  1
     }//GEN-LAST:event_btn_viewConnectionsMouseClicked
 
@@ -983,7 +1011,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JDialog jd_Connections;
@@ -993,6 +1020,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel label_Principal;
     private javax.swing.JList<String> lista_AmigosAAgregar;
     private javax.swing.JList<String> lista_OpcionContacto;
+    private javax.swing.JPanel p_con;
     private javax.swing.JPanel panel_Agregar;
     private javax.swing.JPanel panel_Information;
     private javax.swing.JTextField tf_CiudadPersona;
