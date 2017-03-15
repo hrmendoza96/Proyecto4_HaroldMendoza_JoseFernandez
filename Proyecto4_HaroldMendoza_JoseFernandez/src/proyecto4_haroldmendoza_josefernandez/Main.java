@@ -91,7 +91,7 @@ public class Main extends javax.swing.JFrame {
         btn_Exit = new javax.swing.JButton();
         label_Imagen = new javax.swing.JLabel();
         btn_Agregar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btn_UniversalConnection = new javax.swing.JButton();
 
         panel_Information.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -560,11 +560,11 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
-        jButton1.setText("UNIVERSAL CONNECTION");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_UniversalConnection.setFont(new java.awt.Font("OCR A Extended", 0, 13)); // NOI18N
+        btn_UniversalConnection.setText("UNIVERSAL CONNECTION");
+        btn_UniversalConnection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_UniversalConnectionActionPerformed(evt);
             }
         });
 
@@ -600,7 +600,7 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(btn_Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(PanelPrincipalLayout.createSequentialGroup()
                             .addGap(238, 238, 238)
-                            .addComponent(jButton1))))
+                            .addComponent(btn_UniversalConnection))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelPrincipalLayout.setVerticalGroup(
@@ -621,7 +621,7 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addComponent(b_informacion)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btn_UniversalConnection)
                 .addGap(80, 80, 80)
                 .addComponent(btn_Exit)
                 .addGap(44, 44, 44))
@@ -889,32 +889,34 @@ public class Main extends javax.swing.JFrame {
         }//Fin del else if  1
     }//GEN-LAST:event_btn_viewConnectionsMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_UniversalConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_UniversalConnectionActionPerformed
+        Graph MapaGlobal2 = MapaGlobal;
+
         /*Se crea un string en el cual se van a guardar todos las condiciones del css del grafo*/
         String css = "edge .notintree {size:1px;fill-color:slategray;} "
                 + "edge .intree {size:3px;fill-color:cornsilk;}" + "graph { fill-color: rgb(47,79,79); }";
 
         /*Se hace el for de vertices para poder cambiarles el color a los vertices y al tecxto*/
-        for (Node temp : MapaGlobal.getEachNode()) {    
+        for (Node temp : MapaGlobal2.getEachNode()) {
             temp.addAttribute("ui.style", "fill-color: rgb(250,240,230);size:10px,10px;text-color: rgb(255,240,245);");
         }//Fin del for
-        
+
         /*Se agregan los atributos para aplicar correctamente el uso de css*/
-        MapaGlobal.addAttribute("ui.quality");
-        MapaGlobal.addAttribute("ui.antialias");
-        MapaGlobal.addAttribute("ui.stylesheet", css);
-        
+        MapaGlobal2.addAttribute("ui.quality");
+        MapaGlobal2.addAttribute("ui.antialias");
+        MapaGlobal2.addAttribute("ui.stylesheet", css);
+
         /*Se agrega el viewer para que el programa no cierre al cerrar la ventana*/
-        Viewer viewer = MapaGlobal.display();
+        Viewer viewer = MapaGlobal2.display();
         viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
-        
+
         /*Se inicializa Kruskal con las bases de css que creamos anteriormente y se calcula el 
         arbol abarcador de costo minimo*/
         Kruskal kruskal = new Kruskal("ui.class", "intree", "notintree");
-        kruskal.init(MapaGlobal);
+        kruskal.init(MapaGlobal2);
         kruskal.compute();
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+
+    }//GEN-LAST:event_btn_UniversalConnectionActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -956,12 +958,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btn_ComenzarSeguimiento;
     private javax.swing.JButton btn_Exit;
     private javax.swing.JButton btn_PasarAmigo;
+    private javax.swing.JButton btn_UniversalConnection;
     private javax.swing.JButton btn_viewConnections;
     private javax.swing.JComboBox<String> cb_Lista;
     private javax.swing.JComboBox<String> cb_Persona1;
     private javax.swing.JComboBox<String> cb_Persona2;
     private javax.swing.JComboBox<String> cb_ResearchMotive;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
