@@ -50,14 +50,3 @@ Julian,34,Acapulco,Soltero,44000,Drugs,Guillermo,3,Mario,4,Miguel,4
 Steve,40,Berlin,Casado,233000,Terrorism,Jose,2,Harold,1,Mario,3
 Laika,25,Moscu,Soltera,25000,Prostitution,Hansel,3,Jose,7,Maria,1,Miguel,3
 Danelia,29,Tegucigalpa,Casada,27000,Precaution,Gerardo,7,Hansel,3,Paolo,9
-Lacayo,50,Tegucigalpa,Casado,70000,Espionage,Alex,5,Lisandro,7
-Arturo,19,Los Angeles,Soltero,3000,Drugs,Alex,25,Hugo,30,Gracia,6
-Billy,19,San Jose,Soltero,20,Precaution,Danelia,6,Bianca,3
-Jaylo,70,Los Angeles,Single,700000,Drugs,Austin,5
-Sandra,40,New York,Casada,100000,Precaution,Pablo,4,Rodrigo,50,Guillermo,6
-Mel,60,San Pedro Sula,Casado,70000,Precaution,Sandra,4,Nelson,65
-Wilmer,89,Miami,Soltero,450000,Gangster,Ricardo,60,Sandra,70,Mel,54
-Thiago,29,Munic,Soltero,170000,Drugs,Angela,5,Alex,9,Kevin,3,Laika,50
-Monica,23,Miami,Comprometida,132222,Drunk Driving,Angela,5
-Joseee,2,Miami,Soltero,20091,Drunk Driving,Angela,98
-Bruce Wayne,87,Gotham,Soltero,90000,Drugs,Andres,23,Andrea,32
