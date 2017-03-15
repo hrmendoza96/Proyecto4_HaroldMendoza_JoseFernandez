@@ -20,6 +20,7 @@ import org.graphstream.graph.Node;
 import org.graphstream.graph.Path;
 import org.graphstream.graph.implementations.DefaultGraph;
 import org.graphstream.graph.implementations.SingleGraph;
+import org.graphstream.ui.view.View;
 import org.graphstream.ui.view.Viewer;
 
 public class Main extends javax.swing.JFrame {
@@ -644,7 +645,11 @@ public class Main extends javax.swing.JFrame {
 
     private void b_grafoPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_grafoPrincipalActionPerformed
         Viewer viewer = MapaGlobal.display(); //display el grafo
+        View view = viewer.getDefaultView();
+        view.getCamera().setViewCenter(2, 3, 2);
+        view.getCamera().setViewPercent(0.5);
         viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
+
     }//GEN-LAST:event_b_grafoPrincipalActionPerformed
 
     private void cb_ListaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_ListaItemStateChanged
@@ -1121,7 +1126,7 @@ public class Main extends javax.swing.JFrame {
                     }//Fin del if node
                     if (MapaGlobal.getEdge(nodoPersona.getId() + nodoPersona2.getId()) == null) { // se agregan los edges 
                         MapaGlobal.addEdge(nodoPersona.getId() + nodoPersona2.getId(), nodoPersona, nodoPersona2).addAttribute("Relacion", temp.getNivelRelacion());
-                        MapaGlobal.getEdge(nodoPersona.getId() + nodoPersona2.getId()).addAttribute("ui.label", "Nivel de Relacion: " + Integer.toString(temp.getNivelRelacion()));
+                        //MapaGlobal.getEdge(nodoPersona.getId() + nodoPersona2.getId()).addAttribute("ui.label", "Nivel de Relacion: " + Integer.toString(temp.getNivelRelacion()));
                     }//fin if edges      
                 }//fin for
 
@@ -1129,7 +1134,10 @@ public class Main extends javax.swing.JFrame {
                 MapaGlobal.addAttribute("ui.quality");
                 MapaGlobal.addAttribute("ui.antialias");
                 for (Node temp : MapaGlobal.getEachNode()) {
+
                     temp.addAttribute("ui.style", "fill-color: rgb(211,211,211);size:10px, 10px;text-color: rgb(211,211,211); ");
+
+                    temp.addAttribute("ui.style", "fill-color: rgb(211,211,211);size:10px,10px;text-color: rgb(211,211,211);");
 
                 }
                 for (Edge edge : MapaGlobal.getEachEdge()) {
