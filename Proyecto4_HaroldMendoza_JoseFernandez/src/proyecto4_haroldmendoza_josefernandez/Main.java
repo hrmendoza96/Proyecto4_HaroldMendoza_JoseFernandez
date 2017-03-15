@@ -665,7 +665,7 @@ public class Main extends javax.swing.JFrame {
             } else { //si se escogee el espacio en blanco, se bloquean los botones
                 SelectedPerson = null;
                 b_informacion.setEnabled(false);
-               
+
             }//Fin del if else
         }//Fin del if item
     }//GEN-LAST:event_cb_ListaItemStateChanged
@@ -869,17 +869,17 @@ public class Main extends javax.swing.JFrame {
                 graphSecundario.addNode(person2.getId()).addAttribute("ui.label", person2.getId());
                 graphSecundario.addEdge(person2.getId() + person1.getId(), person2.getId(), person1.getId()).addAttribute("ui.label", edge.getAttribute("Relacion").toString());;
             }//Fin del for
-                graphSecundario.addAttribute("ui.stylesheet", "graph { fill-color: rgb(0,0,0); }");
-                graphSecundario.addAttribute("ui.quality");
-                graphSecundario.addAttribute("ui.antialias");
-               
-                for (Node temp : graphSecundario.getEachNode()) {
-                    temp.addAttribute("ui.style", "fill-color: rgb(107,142,35);size:10px,10px;text-color: rgb(107,142,35);");
+            graphSecundario.addAttribute("ui.stylesheet", "graph { fill-color: rgb(0,0,0); }");
+            graphSecundario.addAttribute("ui.quality");
+            graphSecundario.addAttribute("ui.antialias");
 
-                }
-                for (Edge edge : graphSecundario.getEachEdge()) {
-                    edge.addAttribute("ui.style", "fill-color: rgb(47,79,79); text-color:  rgb(211,211,211);");
-                }
+            for (Node temp : graphSecundario.getEachNode()) {
+                temp.addAttribute("ui.style", "fill-color: rgb(107,142,35);size:10px,10px;text-color: rgb(107,142,35);");
+
+            }
+            for (Edge edge : graphSecundario.getEachEdge()) {
+                edge.addAttribute("ui.style", "fill-color: rgb(47,79,79); text-color:  rgb(211,211,211);");
+            }
 
             this.jd_Connections.dispose();
             cb_Persona1.setSelectedIndex(0);
@@ -890,10 +890,30 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_viewConnectionsMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Kruskal kruskal = new Kruskal();
+        /*Se crea un string en el cual se van a guardar todos las condiciones del css del grafo*/
+        String css = "edge .notintree {size:1px;fill-color:slategray;} "
+                + "edge .intree {size:3px;fill-color:cornsilk;}" + "graph { fill-color: rgb(47,79,79); }";
+
+        /*Se hace el for de vertices para poder cambiarles el color a los vertices y al tecxto*/
+        for (Node temp : MapaGlobal.getEachNode()) {    
+            temp.addAttribute("ui.style", "fill-color: rgb(250,240,230);size:10px,10px;text-color: rgb(255,240,245);");
+        }//Fin del for
+        
+        /*Se agregan los atributos para aplicar correctamente el uso de css*/
+        MapaGlobal.addAttribute("ui.quality");
+        MapaGlobal.addAttribute("ui.antialias");
+        MapaGlobal.addAttribute("ui.stylesheet", css);
+        
+        /*Se agrega el viewer para que el programa no cierre al cerrar la ventana*/
+        Viewer viewer = MapaGlobal.display();
+        viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
+        
+        /*Se inicializa Kruskal con las bases de css que creamos anteriormente y se calcula el 
+        arbol abarcador de costo minimo*/
+        Kruskal kruskal = new Kruskal("ui.class", "intree", "notintree");
         kruskal.init(MapaGlobal);
         kruskal.compute();
-        System.out.println(kruskal.getTreeEdges().toString());
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
@@ -1147,7 +1167,7 @@ public class Main extends javax.swing.JFrame {
                 MapaGlobal.addAttribute("ui.stylesheet", "graph { fill-color: rgb(0,0,0); }");
                 MapaGlobal.addAttribute("ui.quality");
                 MapaGlobal.addAttribute("ui.antialias");
-               
+
                 for (Node temp : MapaGlobal.getEachNode()) {
                     temp.addAttribute("ui.style", "fill-color: rgb(107,142,35);size:10px,10px;text-color: rgb(107,142,35);");
 
@@ -1155,7 +1175,6 @@ public class Main extends javax.swing.JFrame {
                 for (Edge edge : MapaGlobal.getEachEdge()) {
                     edge.addAttribute("ui.style", "fill-color: rgb(47,79,79); text-color:  rgb(211,211,211);");
                 }
-            
 
             } catch (Exception e) {
             }//Fin del try catch
