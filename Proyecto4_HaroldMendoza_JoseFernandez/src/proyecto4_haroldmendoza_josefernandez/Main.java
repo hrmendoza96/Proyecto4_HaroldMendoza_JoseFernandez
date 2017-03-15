@@ -648,6 +648,7 @@ public class Main extends javax.swing.JFrame {
         View view = viewer.getDefaultView();
         view.getCamera().setViewCenter(2, 3, 2);
         view.getCamera().setViewPercent(0.5);
+
         viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
 
     }//GEN-LAST:event_b_grafoPrincipalActionPerformed
@@ -1142,7 +1143,16 @@ public class Main extends javax.swing.JFrame {
                 }
                 for (Edge edge : MapaGlobal.getEachEdge()) {
                     edge.addAttribute("ui.style", "fill-color: rgb(211,211,211); text-color:  rgb(211,211,211);");
+                }
+                //MapaGlobal.addAttribute("ui.stylesheet", "graph { fill-color: rgb(0,0,0); }");
+                MapaGlobal.addAttribute("ui.quality");
+                MapaGlobal.addAttribute("ui.antialias");
+                for (Node temp : MapaGlobal.getEachNode()) {
+                    temp.addAttribute("ui.style", "fill-color: rgb(107,142,35);size:10px,10px;text-color: rgb(0,0,0);");
 
+                }
+                for (Edge edge : MapaGlobal.getEachEdge()) {
+                    edge.addAttribute("ui.style", "fill-color: rgb(47,79,79); text-color:  rgb(211,211,211);");
                 }
 
             } catch (Exception e) {
