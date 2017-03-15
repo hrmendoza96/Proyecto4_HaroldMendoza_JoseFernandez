@@ -1070,6 +1070,7 @@ public class Main extends javax.swing.JFrame {
         File archivo = null;
         Scanner scannerArchivo = null;
         archivo = new File("./Personas.txt");
+        System.out.println("Hola");
         String linea = "", nombre = "", ciudad = "", estadoCivil = "", researchMotive = "";
         int edad = 0;
         double salario = 0;
