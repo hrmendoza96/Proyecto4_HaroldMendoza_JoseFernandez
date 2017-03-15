@@ -646,7 +646,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ExitActionPerformed
 
     private void b_grafoPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_grafoPrincipalActionPerformed
-       // CrearMapaGlobal();
+        CrearMapaGlobal();
         Viewer viewer = MapaGlobal.display(); //display el grafo
        //View view = viewer.getDefaultView();
         //view.getCamera().setViewCenter(2, 3, 2);
@@ -894,7 +894,7 @@ public class Main extends javax.swing.JFrame {
         Graph MapaGlobal2 = MapaGlobal;
         
         /*Se crea un string en el cual se van a guardar todos las condiciones del css del grafo*/
-        String css = "edge .notintree {size:1px;fill-color:slategray;} "
+        String css = "edge .notintree {size:0px;fill-color:slategray;} "
                 + "edge .intree {size:3px;fill-color:cornsilk;}" + "graph { fill-color: rgb(47,79,79); }";
 
         /*Se hace el for de vertices para poder cambiarles el color a los vertices y al tecxto*/
@@ -916,7 +916,7 @@ public class Main extends javax.swing.JFrame {
         Kruskal kruskal = new Kruskal("ui.class", "intree", "notintree");
         kruskal.init(MapaGlobal2);
         kruskal.compute();
-        CrearMapaGlobal();
+        //CrearMapaGlobal();
     }//GEN-LAST:event_btn_UniversalConnectionActionPerformed
 
     public static void main(String args[]) {
