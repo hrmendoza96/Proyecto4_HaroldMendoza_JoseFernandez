@@ -22,7 +22,6 @@ import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.Path;
 import org.graphstream.graph.implementations.SingleGraph;
-import org.graphstream.ui.swingViewer.DefaultView;
 import org.graphstream.ui.swingViewer.ViewPanel;
 import org.graphstream.ui.view.View;
 import org.graphstream.ui.view.Viewer;
@@ -85,7 +84,8 @@ public class Main extends javax.swing.JFrame {
         p_con = new javax.swing.JPanel();
         cb_Persona1 = new javax.swing.JComboBox<>();
         cb_Persona2 = new javax.swing.JComboBox<>();
-        btn_viewConnections = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        panel_con = new javax.swing.JPanel();
         PanelPrincipal = new javax.swing.JPanel();
         label_Principal = new javax.swing.JLabel();
         b_grafoPrincipal = new javax.swing.JButton();
@@ -457,53 +457,79 @@ public class Main extends javax.swing.JFrame {
         p_con.setBackground(new java.awt.Color(0, 102, 102));
 
         cb_Persona1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
-
-        cb_Persona2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
-
-        btn_viewConnections.setText("View Connections");
-        btn_viewConnections.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_viewConnectionsMouseClicked(evt);
+        cb_Persona1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_Persona1ItemStateChanged(evt);
             }
         });
+
+        cb_Persona2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        cb_Persona2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_Persona2ItemStateChanged(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("OCR A Extended", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("CONNECTIONS");
 
         javax.swing.GroupLayout p_conLayout = new javax.swing.GroupLayout(p_con);
         p_con.setLayout(p_conLayout);
         p_conLayout.setHorizontalGroup(
             p_conLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p_conLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(cb_Persona1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addComponent(cb_Persona2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(93, 93, 93))
             .addGroup(p_conLayout.createSequentialGroup()
-                .addGroup(p_conLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(p_conLayout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(btn_viewConnections, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(p_conLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(cb_Persona1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(88, 88, 88)
-                        .addComponent(cb_Persona2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addGap(202, 202, 202)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         p_conLayout.setVerticalGroup(
             p_conLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(p_conLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(64, 64, 64)
                 .addGroup(p_conLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cb_Persona1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cb_Persona2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addComponent(btn_viewConnections)
-                .addContainerGap(111, Short.MAX_VALUE))
+                    .addComponent(cb_Persona2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_Persona1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+
+        panel_con.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout panel_conLayout = new javax.swing.GroupLayout(panel_con);
+        panel_con.setLayout(panel_conLayout);
+        panel_conLayout.setHorizontalGroup(
+            panel_conLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        panel_conLayout.setVerticalGroup(
+            panel_conLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 423, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jd_ConnectionsLayout = new javax.swing.GroupLayout(jd_Connections.getContentPane());
         jd_Connections.getContentPane().setLayout(jd_ConnectionsLayout);
         jd_ConnectionsLayout.setHorizontalGroup(
             jd_ConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(p_con, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jd_ConnectionsLayout.createSequentialGroup()
+                .addGroup(jd_ConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(panel_con, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(p_con, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jd_ConnectionsLayout.setVerticalGroup(
             jd_ConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(p_con, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jd_ConnectionsLayout.createSequentialGroup()
+                .addComponent(p_con, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panel_con, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -651,12 +677,12 @@ public class Main extends javax.swing.JFrame {
 
     private void b_grafoPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_grafoPrincipalActionPerformed
         CrearMapaGlobal();
-        Viewer viewer = MapaGlobal.display(); //display el grafo
+        Viewer viewer2 = MapaGlobal.display(); //display el grafo
        //View view = viewer.getDefaultView();
         //view.getCamera().setViewCenter(2, 3, 2);
         //view.getCamera().setViewPercent(0.5);
 
-        viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
+        viewer2.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
 
     }//GEN-LAST:event_b_grafoPrincipalActionPerformed
 
@@ -824,6 +850,13 @@ public class Main extends javax.swing.JFrame {
 
     private void b_connectionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_connectionsActionPerformed
         llenarComboBoxesPersonas();
+        cb_Persona1.setSelectedIndex(0);
+        cb_Persona2.setSelectedIndex(0);
+        if(view!=null){
+            panel_con.remove(view);
+            panel_con.setPreferredSize(new Dimension(519, 410));
+        }
+        
         this.jd_Connections.setModal(true);
         this.jd_Connections.pack();
         this.jd_Connections.setLocationRelativeTo(this);
@@ -841,82 +874,6 @@ public class Main extends javax.swing.JFrame {
             }//Fin del if else
         }//Fin del if item
     }//GEN-LAST:event_cb_ResearchMotiveItemStateChanged
-
-    private void btn_viewConnectionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_viewConnectionsMouseClicked
-        if (cb_Persona1.getSelectedIndex() == cb_Persona2.getSelectedIndex()) {
-            JOptionPane.showMessageDialog(this.jd_Connections, "No puede seleccionar la misma persona.", "Hmm...", JOptionPane.ERROR_MESSAGE);
-        } else {
-            /*Se crea el grafo secundario para mostrar la ruta mas barata.*/
-            Graph graphSecundario = new SingleGraph("Relationship");
-            
-            
-            
-
-            //Se crea Dijkstra teniendo como base la distancia.
-            Dijkstra dijkstra = new Dijkstra(Dijkstra.Element.EDGE, null, "Relacion");
-            dijkstra.init(MapaGlobal);
-
-            Node persona1 = MapaGlobal.getNode(cb_Persona1.getSelectedItem().toString());
-            Node persona2 = MapaGlobal.getNode(cb_Persona2.getSelectedItem().toString());
-            dijkstra.setSource(persona1);
-            dijkstra.compute();
-            Path camino = dijkstra.getPath(persona2);
-
-            graphSecundario.setStrict(false);
-            graphSecundario.setAutoCreate(false);
-
-            for (Edge edge : camino.getEdgePath()) {
-                /*Se crean dos nodos, los que estan en ambos opuestos de las aristas,
-            los cuales van cambiando mediante la ruta sigue.*/
-                Node person1 = edge.getNode1();
-                Node person2 = edge.getOpposite(person1);
-
-                /*Se crea la arista que une los dos nodos creados. Luego se le
-            agregan los atributos y se muestra el grafo.*/
-                graphSecundario.addNode(person1.getId()).addAttribute("ui.label", person1.getId());
-                graphSecundario.addNode(person2.getId()).addAttribute("ui.label", person2.getId());
-                graphSecundario.addEdge(person2.getId() + person1.getId(), person2.getId(), person1.getId()).addAttribute("ui.label", edge.getAttribute("Relacion").toString());;
-            }//Fin del for
-            graphSecundario.addAttribute("ui.stylesheet", "graph { fill-color: rgb(0,0,0); }");
-            graphSecundario.addAttribute("ui.quality");
-            graphSecundario.addAttribute("ui.antialias");
-
-            for (Node temp : graphSecundario.getEachNode()) {
-                temp.addAttribute("ui.style", "fill-color: rgb(107,142,35);size:10px,10px;text-color: rgb(107,142,35);");
-
-            }
-            for (Edge edge : graphSecundario.getEachEdge()) {
-                edge.addAttribute("ui.style", "fill-color: rgb(47,79,79); text-color:  rgb(211,211,211);");
-            }
-
-            //this.jd_Connections.dispose();
-            cb_Persona1.setSelectedIndex(0);
-            cb_Persona2.setSelectedIndex(0);
-            
-            Viewer viewer = new Viewer(graphSecundario, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);           
-           // DefaultView view = (DefaultView) viewer.addDefaultView(false);
-            ViewPanel view = viewer.addDefaultView(false);
-            p_con.add(view);
-            
-            view.setPreferredSize(new Dimension(200, 250));
-            p_con.setLayout(new FlowLayout());
-            
-            //jd_Connections.add(view);
-            jd_Connections.pack();
-            
-            
-            viewer.enableAutoLayout();
-            
-            
-            
-            
-            
-            
-            
-           // Viewer viewer = graphSecundario.display();
-            //viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
-        }//Fin del else if  1
-    }//GEN-LAST:event_btn_viewConnectionsMouseClicked
 
     private void btn_UniversalConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_UniversalConnectionActionPerformed
         Graph MapaGlobal2 = MapaGlobal;
@@ -946,6 +903,27 @@ public class Main extends javax.swing.JFrame {
         kruskal.compute();
         //CrearMapaGlobal();
     }//GEN-LAST:event_btn_UniversalConnectionActionPerformed
+
+    private void cb_Persona1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_Persona1ItemStateChanged
+        // TODO add your handling code here:
+        if (evt.getStateChange() == 2) {
+            if(cb_Persona1.getSelectedIndex()>0 && cb_Persona2.getSelectedIndex()>0){
+                VisualizarConnection();
+            }
+        
+        } 
+        
+    }//GEN-LAST:event_cb_Persona1ItemStateChanged
+
+    private void cb_Persona2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_Persona2ItemStateChanged
+        // TODO add your handling code here:
+        if (evt.getStateChange() == 2) {
+            if(cb_Persona1.getSelectedIndex()>0 && cb_Persona2.getSelectedIndex()>0){
+                VisualizarConnection();
+            }
+        
+        } 
+    }//GEN-LAST:event_cb_Persona2ItemStateChanged
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -988,11 +966,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btn_Exit;
     private javax.swing.JButton btn_PasarAmigo;
     private javax.swing.JButton btn_UniversalConnection;
-    private javax.swing.JButton btn_viewConnections;
     private javax.swing.JComboBox<String> cb_Lista;
     private javax.swing.JComboBox<String> cb_Persona1;
     private javax.swing.JComboBox<String> cb_Persona2;
     private javax.swing.JComboBox<String> cb_ResearchMotive;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
@@ -1023,6 +1001,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel p_con;
     private javax.swing.JPanel panel_Agregar;
     private javax.swing.JPanel panel_Information;
+    private javax.swing.JPanel panel_con;
     private javax.swing.JTextField tf_CiudadPersona;
     private javax.swing.JTextField tf_EdadPersona;
     private javax.swing.JTextField tf_EstadoCPersona;
@@ -1041,6 +1020,9 @@ public class Main extends javax.swing.JFrame {
     Graph MapaGlobal = new SingleGraph("Global Map Routes");
     Node SelectedPerson;
     String motivo = "";
+    Viewer viewer = null; //viewer para connections
+    ViewPanel view = null; //viewpanel para connections
+    
 
     void llenarComboBoxPrincipal() {
         /*Se crea un arraylist de tipo string en el cual se van a guardar
@@ -1121,9 +1103,10 @@ public class Main extends javax.swing.JFrame {
                         estadoCivil = caracteristicas[3];
                         salario = Double.parseDouble(caracteristicas[4]);
                         researchMotive = caracteristicas[5];
-
+                        
                         //Se crea a una persona nueva
                         Persona persona = new Persona(nombre, edad, ciudad, estadoCivil, salario, researchMotive);
+                        //System.out.println(persona.toString());
                         //Se agrega a la persona a la lista de personas
                         personas.Insert(persona, contador);
 
@@ -1211,5 +1194,73 @@ public class Main extends javax.swing.JFrame {
             }//Fin del try catch
         }//Fin del for
     }//Fin del metodo crear mapa global
+    
+    public void VisualizarConnection(){
+        if (cb_Persona1.getSelectedIndex() == cb_Persona2.getSelectedIndex()) {
+            JOptionPane.showMessageDialog(this.jd_Connections, "No puede seleccionar la misma persona.", "Hmm...", JOptionPane.ERROR_MESSAGE);
+        } else {
+            /*Se crea el grafo secundario para mostrar la ruta mas barata.*/
+            if(view!=null){
+                panel_con.remove(view);
+            }
+            
+            Graph graphSecundario = new SingleGraph("Relationship");
+            
+            
+            
+
+            //Se crea Dijkstra teniendo como base la distancia.
+            Dijkstra dijkstra = new Dijkstra(Dijkstra.Element.EDGE, null, "Relacion");
+            dijkstra.init(MapaGlobal);
+
+            Node persona1 = MapaGlobal.getNode(cb_Persona1.getSelectedItem().toString());
+            Node persona2 = MapaGlobal.getNode(cb_Persona2.getSelectedItem().toString());
+            dijkstra.setSource(persona1);
+            dijkstra.compute();
+            Path camino = dijkstra.getPath(persona2);
+
+            graphSecundario.setStrict(false);
+            graphSecundario.setAutoCreate(false);
+
+            for (Edge edge : camino.getEdgePath()) {
+                /*Se crean dos nodos, los que estan en ambos opuestos de las aristas,
+            los cuales van cambiando mediante la ruta sigue.*/
+                Node person1 = edge.getNode1();
+                Node person2 = edge.getOpposite(person1);
+
+                /*Se crea la arista que une los dos nodos creados. Luego se le
+            agregan los atributos y se muestra el grafo.*/
+                graphSecundario.addNode(person1.getId()).addAttribute("ui.label", person1.getId());
+                graphSecundario.addNode(person2.getId()).addAttribute("ui.label", person2.getId());
+                graphSecundario.addEdge(person2.getId() + person1.getId(), person2.getId(), person1.getId()).addAttribute("ui.label", edge.getAttribute("Relacion").toString());;
+            }//Fin del for
+            graphSecundario.addAttribute("ui.stylesheet", "graph { fill-color: rgb(0,0,0); }");
+            graphSecundario.addAttribute("ui.quality");
+            graphSecundario.addAttribute("ui.antialias");
+
+            for (Node temp : graphSecundario.getEachNode()) {
+                temp.addAttribute("ui.style", "fill-color: rgb(107,142,35);size:10px,10px;text-color: rgb(107,142,35);");
+
+            }
+            for (Edge edge : graphSecundario.getEachEdge()) {
+                edge.addAttribute("ui.style", "fill-color: rgb(47,79,79); text-color:  rgb(211,211,211);");
+            }
+
+            
+            
+            
+            viewer = new Viewer(graphSecundario, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);           
+           
+            view = viewer.addDefaultView(false);
+            panel_con.add(view);
+            
+            view.setPreferredSize(new Dimension(519, 410));
+            panel_con.setLayout(new FlowLayout());
+            jd_Connections.pack();
+            
+            
+            viewer.enableAutoLayout();
+        }
+    }//fin visualizar connection
 
 }//Fin de la clase
