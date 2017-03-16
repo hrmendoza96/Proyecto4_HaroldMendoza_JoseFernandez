@@ -51,3 +51,4 @@ Steve,40,Berlin,Casado,233000,Terrorism,Jose,2,Harold,1,Mario,3
 Laika,25,Moscu,Soltera,25000,Prostitution,Hansel,3,Jose,7,Maria,1,Miguel,3
 Danelia,29,Tegucigalpa,Casada,27000,Precaution,Gerardo,7,Hansel,3,Paolo,9
 Gaby,21,Tegucigalpa,Soltera,30000,Precaution,Harold,89,Andrea,7,Elena,3,Danelia,10
+Yankel,45,Washington,Casado,234000,Drugs,Austin,7
